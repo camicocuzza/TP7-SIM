@@ -31,14 +31,12 @@
             this.lblMinSim = new System.Windows.Forms.Label();
             this.lblDesde = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.tbxMediaCons = new System.Windows.Forms.TextBox();
-            this.tbxMediaEnf = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
+            this.tbxMediaCons = new System.Windows.Forms.TextBox();
+            this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.label2 = new System.Windows.Forms.Label();
+            this.tbxMediaEnf = new System.Windows.Forms.TextBox();
             this.dgv_datos = new System.Windows.Forms.DataGridView();
-            this.tbxMinSim = new System.Windows.Forms.TextBox();
-            this.tbxDesde = new System.Windows.Forms.TextBox();
             this.evento = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.reloj = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.rndTiempoLlegadaCons = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -65,8 +63,12 @@
             this.cantidadTotalPacientes = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.cantidadCalmantes = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.acTiempoPermanencia = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.tbxMinSim = new System.Windows.Forms.TextBox();
+            this.tbxDesde = new System.Windows.Forms.TextBox();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
-            this.tbxDemoraConsulta = new System.Windows.Forms.TextBox();
+            this.tbxHastaCM = new System.Windows.Forms.TextBox();
+            this.tbxDesdeCM = new System.Windows.Forms.TextBox();
+            this.label7 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.groupBox4 = new System.Windows.Forms.GroupBox();
             this.label4 = new System.Windows.Forms.Label();
@@ -78,6 +80,10 @@
             this.label6 = new System.Windows.Forms.Label();
             this.btnLimpiar = new System.Windows.Forms.Button();
             this.btnGenerar = new System.Windows.Forms.Button();
+            this.lblOcupacionEnfermero = new System.Windows.Forms.Label();
+            this.lblPromedioPermanencia = new System.Windows.Forms.Label();
+            this.lblCantCalmantes = new System.Windows.Forms.Label();
+            this.lblPacientesAtendidos = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgv_datos)).BeginInit();
@@ -116,6 +122,22 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Llegada pacientes a consulta";
             // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(16, 44);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(36, 13);
+            this.label1.TabIndex = 2;
+            this.label1.Text = "Media";
+            // 
+            // tbxMediaCons
+            // 
+            this.tbxMediaCons.Location = new System.Drawing.Point(58, 37);
+            this.tbxMediaCons.Name = "tbxMediaCons";
+            this.tbxMediaCons.Size = new System.Drawing.Size(31, 20);
+            this.tbxMediaCons.TabIndex = 0;
+            // 
             // groupBox2
             // 
             this.groupBox2.Controls.Add(this.label2);
@@ -127,29 +149,6 @@
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Llegada pacientes a enfermería";
             // 
-            // tbxMediaCons
-            // 
-            this.tbxMediaCons.Location = new System.Drawing.Point(58, 37);
-            this.tbxMediaCons.Name = "tbxMediaCons";
-            this.tbxMediaCons.Size = new System.Drawing.Size(31, 20);
-            this.tbxMediaCons.TabIndex = 0;
-            // 
-            // tbxMediaEnf
-            // 
-            this.tbxMediaEnf.Location = new System.Drawing.Point(54, 37);
-            this.tbxMediaEnf.Name = "tbxMediaEnf";
-            this.tbxMediaEnf.Size = new System.Drawing.Size(32, 20);
-            this.tbxMediaEnf.TabIndex = 1;
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(16, 44);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(36, 13);
-            this.label1.TabIndex = 2;
-            this.label1.Text = "Media";
-            // 
             // label2
             // 
             this.label2.AutoSize = true;
@@ -158,6 +157,13 @@
             this.label2.Size = new System.Drawing.Size(36, 13);
             this.label2.TabIndex = 3;
             this.label2.Text = "Media";
+            // 
+            // tbxMediaEnf
+            // 
+            this.tbxMediaEnf.Location = new System.Drawing.Point(54, 37);
+            this.tbxMediaEnf.Name = "tbxMediaEnf";
+            this.tbxMediaEnf.Size = new System.Drawing.Size(32, 20);
+            this.tbxMediaEnf.TabIndex = 1;
             // 
             // dgv_datos
             // 
@@ -190,27 +196,13 @@
             this.cantidadTotalPacientes,
             this.cantidadCalmantes,
             this.acTiempoPermanencia});
-            this.dgv_datos.Location = new System.Drawing.Point(11, 113);
+            this.dgv_datos.Location = new System.Drawing.Point(18, 136);
             this.dgv_datos.Margin = new System.Windows.Forms.Padding(2);
             this.dgv_datos.Name = "dgv_datos";
             this.dgv_datos.RowHeadersWidth = 51;
             this.dgv_datos.RowTemplate.Height = 24;
             this.dgv_datos.Size = new System.Drawing.Size(1014, 278);
             this.dgv_datos.TabIndex = 20;
-            // 
-            // tbxMinSim
-            // 
-            this.tbxMinSim.Location = new System.Drawing.Point(69, 33);
-            this.tbxMinSim.Name = "tbxMinSim";
-            this.tbxMinSim.Size = new System.Drawing.Size(45, 20);
-            this.tbxMinSim.TabIndex = 21;
-            // 
-            // tbxDesde
-            // 
-            this.tbxDesde.Location = new System.Drawing.Point(69, 71);
-            this.tbxDesde.Name = "tbxDesde";
-            this.tbxDesde.Size = new System.Drawing.Size(45, 20);
-            this.tbxDesde.TabIndex = 22;
             // 
             // evento
             // 
@@ -226,7 +218,7 @@
             this.reloj.HeaderText = "Reloj (min)";
             this.reloj.MinimumWidth = 6;
             this.reloj.Name = "reloj";
-            this.reloj.Width = 81;
+            this.reloj.Width = 75;
             // 
             // rndTiempoLlegadaCons
             // 
@@ -386,32 +378,64 @@
             this.acTiempoPermanencia.Name = "acTiempoPermanencia";
             this.acTiempoPermanencia.Width = 132;
             // 
+            // tbxMinSim
+            // 
+            this.tbxMinSim.Location = new System.Drawing.Point(69, 33);
+            this.tbxMinSim.Name = "tbxMinSim";
+            this.tbxMinSim.Size = new System.Drawing.Size(45, 20);
+            this.tbxMinSim.TabIndex = 21;
+            // 
+            // tbxDesde
+            // 
+            this.tbxDesde.Location = new System.Drawing.Point(69, 71);
+            this.tbxDesde.Name = "tbxDesde";
+            this.tbxDesde.Size = new System.Drawing.Size(45, 20);
+            this.tbxDesde.TabIndex = 22;
+            // 
             // groupBox3
             // 
+            this.groupBox3.Controls.Add(this.tbxHastaCM);
+            this.groupBox3.Controls.Add(this.tbxDesdeCM);
+            this.groupBox3.Controls.Add(this.label7);
             this.groupBox3.Controls.Add(this.label3);
-            this.groupBox3.Controls.Add(this.tbxDemoraConsulta);
             this.groupBox3.Location = new System.Drawing.Point(350, 27);
             this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Size = new System.Drawing.Size(98, 72);
+            this.groupBox3.Size = new System.Drawing.Size(98, 104);
             this.groupBox3.TabIndex = 23;
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "Demora consulta médica";
             // 
-            // tbxDemoraConsulta
+            // tbxHastaCM
             // 
-            this.tbxDemoraConsulta.Location = new System.Drawing.Point(54, 37);
-            this.tbxDemoraConsulta.Name = "tbxDemoraConsulta";
-            this.tbxDemoraConsulta.Size = new System.Drawing.Size(38, 20);
-            this.tbxDemoraConsulta.TabIndex = 1;
+            this.tbxHastaCM.Location = new System.Drawing.Point(57, 66);
+            this.tbxHastaCM.Name = "tbxHastaCM";
+            this.tbxHastaCM.Size = new System.Drawing.Size(33, 20);
+            this.tbxHastaCM.TabIndex = 7;
+            // 
+            // tbxDesdeCM
+            // 
+            this.tbxDesdeCM.Location = new System.Drawing.Point(57, 34);
+            this.tbxDesdeCM.Name = "tbxDesdeCM";
+            this.tbxDesdeCM.Size = new System.Drawing.Size(33, 20);
+            this.tbxDesdeCM.TabIndex = 6;
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Location = new System.Drawing.Point(16, 69);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(35, 13);
+            this.label7.TabIndex = 5;
+            this.label7.Text = "Hasta";
             // 
             // label3
             // 
             this.label3.AutoSize = true;
             this.label3.Location = new System.Drawing.Point(16, 40);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(32, 13);
+            this.label3.Size = new System.Drawing.Size(38, 13);
             this.label3.TabIndex = 4;
-            this.label3.Text = "Cte =";
+            this.label3.Text = "Desde";
             // 
             // groupBox4
             // 
@@ -506,11 +530,55 @@
             this.btnGenerar.Text = "Generar";
             this.btnGenerar.UseVisualStyleBackColor = true;
             // 
+            // lblOcupacionEnfermero
+            // 
+            this.lblOcupacionEnfermero.AutoSize = true;
+            this.lblOcupacionEnfermero.Location = new System.Drawing.Point(394, 428);
+            this.lblOcupacionEnfermero.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.lblOcupacionEnfermero.Name = "lblOcupacionEnfermero";
+            this.lblOcupacionEnfermero.Size = new System.Drawing.Size(191, 13);
+            this.lblOcupacionEnfermero.TabIndex = 29;
+            this.lblOcupacionEnfermero.Text = "Promedio tiempo ocupación enfermero:";
+            // 
+            // lblPromedioPermanencia
+            // 
+            this.lblPromedioPermanencia.AutoSize = true;
+            this.lblPromedioPermanencia.Location = new System.Drawing.Point(394, 458);
+            this.lblPromedioPermanencia.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.lblPromedioPermanencia.Name = "lblPromedioPermanencia";
+            this.lblPromedioPermanencia.Size = new System.Drawing.Size(201, 13);
+            this.lblPromedioPermanencia.TabIndex = 30;
+            this.lblPromedioPermanencia.Text = "Promedio tiempo permanencia pacientes:";
+            // 
+            // lblCantCalmantes
+            // 
+            this.lblCantCalmantes.AutoSize = true;
+            this.lblCantCalmantes.Location = new System.Drawing.Point(28, 458);
+            this.lblCantCalmantes.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.lblCantCalmantes.Name = "lblCantCalmantes";
+            this.lblCantCalmantes.Size = new System.Drawing.Size(166, 13);
+            this.lblCantCalmantes.TabIndex = 32;
+            this.lblCantCalmantes.Text = "Cantidad de calmantes aplicados:";
+            // 
+            // lblPacientesAtendidos
+            // 
+            this.lblPacientesAtendidos.AutoSize = true;
+            this.lblPacientesAtendidos.Location = new System.Drawing.Point(28, 428);
+            this.lblPacientesAtendidos.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.lblPacientesAtendidos.Name = "lblPacientesAtendidos";
+            this.lblPacientesAtendidos.Size = new System.Drawing.Size(188, 13);
+            this.lblPacientesAtendidos.TabIndex = 33;
+            this.lblPacientesAtendidos.Text = "Cantidad total de pacientes atendidos:";
+            // 
             // Menu
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(971, 450);
+            this.ClientSize = new System.Drawing.Size(971, 480);
+            this.Controls.Add(this.lblPacientesAtendidos);
+            this.Controls.Add(this.lblCantCalmantes);
+            this.Controls.Add(this.lblOcupacionEnfermero);
+            this.Controls.Add(this.lblPromedioPermanencia);
             this.Controls.Add(this.btnLimpiar);
             this.Controls.Add(this.btnGenerar);
             this.Controls.Add(this.groupBox6);
@@ -585,7 +653,6 @@
         private System.Windows.Forms.TextBox tbxDesde;
         private System.Windows.Forms.GroupBox groupBox3;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.TextBox tbxDemoraConsulta;
         private System.Windows.Forms.GroupBox groupBox4;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.TextBox tbxDemoraCuracion;
@@ -596,5 +663,12 @@
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Button btnLimpiar;
         private System.Windows.Forms.Button btnGenerar;
+        private System.Windows.Forms.TextBox tbxHastaCM;
+        private System.Windows.Forms.TextBox tbxDesdeCM;
+        private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.Label lblOcupacionEnfermero;
+        private System.Windows.Forms.Label lblPromedioPermanencia;
+        private System.Windows.Forms.Label lblCantCalmantes;
+        private System.Windows.Forms.Label lblPacientesAtendidos;
     }
 }

@@ -15,6 +15,12 @@ namespace TP7_SIM.Formularios
         public Menu()
         {
             InitializeComponent();
+
+            tbxDemoraCuracion.Text = 0.ToString();
+            tbxDemoraVacuna.Text = 0.ToString();
+            tbxDesdeCM.Text = 0.ToString();
+            tbxHastaCM.Text = 0.ToString();
+
         }
     }
 }
