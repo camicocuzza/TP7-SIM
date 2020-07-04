@@ -14,7 +14,6 @@ namespace TP7_SIM
         [STAThread]
         static void Main()
         {
-            D
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
             Application.Run(new Formularios.Menu());
