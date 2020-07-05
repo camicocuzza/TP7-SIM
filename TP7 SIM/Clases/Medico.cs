@@ -10,8 +10,10 @@ namespace TP7_SIM.Clases
     {
         public double finConsulta { get; set; }
         public int id { get; set; }
-        // el atributo pacientes guarda los pacientes en la cola mas el que esta atendiendo
-        public Queue<Paciente> pacientes { get; set; }
+        // el atributo pacientes guarda los pacientes en la cola
+        public static Queue<Paciente> colaPacientes { get; set; }
+        //guarda el paciente siendo atendido
+        public Paciente pacienteAtendido = new Paciente();
         public string estado { get; set; }
         //public double tiempoRemanente { get; set; }
         //public double finPurga { get; set; }
@@ -19,12 +21,10 @@ namespace TP7_SIM.Clases
         public int getTamCola()
         {
 
-            int x = this.pacientes.Count;
-            if (x == 0)
-            {
-                return x;
-            }
-            return x - 1;
+            int x = colaPacientes.Count();
+
+            
+            return x;
         }
         
     }
