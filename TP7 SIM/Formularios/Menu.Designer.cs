@@ -37,32 +37,6 @@
             this.label2 = new System.Windows.Forms.Label();
             this.tbxMediaEnf = new System.Windows.Forms.TextBox();
             this.dgv_datos = new System.Windows.Forms.DataGridView();
-            this.evento = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.reloj = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.rndTiempoLlegadaCons = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.tiempoLlegadaCons = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.proxLlegadaCons = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.rndTiempoLlegadaEnf = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.tiempoLlegadaEnf = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ProxLlegadaEnf = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.rndTipoEnf = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.tipoAtencion = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.rndTiempoConsulta = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.tiempoConsulta = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.finConsultaM1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.finConsultaM2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.rndCalmante = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.calmante = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.tiempoEnfermeria = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.estadoMedico1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.estadoMedico2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colaConsulta = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.estadoEnfermero = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colaEnfermero = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.acTiempoOcupacionEnf = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.cantidadTotalPacientes = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.cantidadCalmantes = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.acTiempoPermanencia = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.txtIteraciones = new System.Windows.Forms.TextBox();
             this.tbxDesde = new System.Windows.Forms.TextBox();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
@@ -91,6 +65,34 @@
             this.lblPromedioPermanencia = new System.Windows.Forms.Label();
             this.lblCantidadCalmantes = new System.Windows.Forms.Label();
             this.lblPacientesAtendidos = new System.Windows.Forms.Label();
+            this.evento = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.reloj = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.rndTiempoLlegadaCons = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.tiempoLlegadaCons = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.proxLlegadaCons = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.rndTiempoLlegadaEnf = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.tiempoLlegadaEnf = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ProxLlegadaEnf = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.rndTipoEnf = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.tipoAtencion = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.rndTiempoConsulta = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.tiempoConsulta = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.finConsultaM1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.finConsultaM2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.rndCalmante = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.calmante = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.tiempoEnfermeria = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.finCalmante = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.estadoMedico1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.estadoMedico2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colaConsulta = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.estadoEnfermero = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colaEnfermero = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colaCalmante = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.acTiempoOcupacionEnf = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.cantidadTotalPacientes = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.cantidadCalmantes = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.acTiempoPermanencia = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgv_datos)).BeginInit();
@@ -200,11 +202,13 @@
             this.rndCalmante,
             this.calmante,
             this.tiempoEnfermeria,
+            this.finCalmante,
             this.estadoMedico1,
             this.estadoMedico2,
             this.colaConsulta,
             this.estadoEnfermero,
             this.colaEnfermero,
+            this.colaCalmante,
             this.acTiempoOcupacionEnf,
             this.cantidadTotalPacientes,
             this.cantidadCalmantes,
@@ -216,180 +220,6 @@
             this.dgv_datos.RowTemplate.Height = 24;
             this.dgv_datos.Size = new System.Drawing.Size(1252, 433);
             this.dgv_datos.TabIndex = 20;
-            // 
-            // evento
-            // 
-            this.evento.FillWeight = 211.7013F;
-            this.evento.HeaderText = "Evento";
-            this.evento.MinimumWidth = 6;
-            this.evento.Name = "evento";
-            this.evento.Width = 65;
-            // 
-            // reloj
-            // 
-            this.reloj.FillWeight = 192.9475F;
-            this.reloj.HeaderText = "Reloj (min)";
-            this.reloj.MinimumWidth = 6;
-            this.reloj.Name = "reloj";
-            this.reloj.Width = 76;
-            // 
-            // rndTiempoLlegadaCons
-            // 
-            this.rndTiempoLlegadaCons.FillWeight = 175.9983F;
-            this.rndTiempoLlegadaCons.HeaderText = "RND";
-            this.rndTiempoLlegadaCons.MinimumWidth = 6;
-            this.rndTiempoLlegadaCons.Name = "rndTiempoLlegadaCons";
-            this.rndTiempoLlegadaCons.Width = 53;
-            // 
-            // tiempoLlegadaCons
-            // 
-            this.tiempoLlegadaCons.FillWeight = 160.6802F;
-            this.tiempoLlegadaCons.HeaderText = "T. entre llegadas cons.";
-            this.tiempoLlegadaCons.MinimumWidth = 6;
-            this.tiempoLlegadaCons.Name = "tiempoLlegadaCons";
-            this.tiempoLlegadaCons.Width = 105;
-            // 
-            // proxLlegadaCons
-            // 
-            this.proxLlegadaCons.FillWeight = 176.2034F;
-            this.proxLlegadaCons.HeaderText = "Próx. llegada consulta";
-            this.proxLlegadaCons.MinimumWidth = 8;
-            this.proxLlegadaCons.Name = "proxLlegadaCons";
-            this.proxLlegadaCons.Width = 126;
-            // 
-            // rndTiempoLlegadaEnf
-            // 
-            this.rndTiempoLlegadaEnf.FillWeight = 157.7981F;
-            this.rndTiempoLlegadaEnf.HeaderText = "RND";
-            this.rndTiempoLlegadaEnf.MinimumWidth = 8;
-            this.rndTiempoLlegadaEnf.Name = "rndTiempoLlegadaEnf";
-            this.rndTiempoLlegadaEnf.Width = 53;
-            // 
-            // tiempoLlegadaEnf
-            // 
-            this.tiempoLlegadaEnf.FillWeight = 141.5182F;
-            this.tiempoLlegadaEnf.HeaderText = "T. entre llegadas enf.";
-            this.tiempoLlegadaEnf.MinimumWidth = 8;
-            this.tiempoLlegadaEnf.Name = "tiempoLlegadaEnf";
-            this.tiempoLlegadaEnf.Width = 105;
-            // 
-            // ProxLlegadaEnf
-            // 
-            this.ProxLlegadaEnf.HeaderText = "Próx. llegada enf.";
-            this.ProxLlegadaEnf.Name = "ProxLlegadaEnf";
-            this.ProxLlegadaEnf.Width = 89;
-            // 
-            // rndTipoEnf
-            // 
-            this.rndTipoEnf.FillWeight = 105.9319F;
-            this.rndTipoEnf.HeaderText = "RND";
-            this.rndTipoEnf.MinimumWidth = 6;
-            this.rndTipoEnf.Name = "rndTipoEnf";
-            this.rndTipoEnf.Width = 53;
-            // 
-            // tipoAtencion
-            // 
-            this.tipoAtencion.FillWeight = 97.35632F;
-            this.tipoAtencion.HeaderText = "Tipo Atención";
-            this.tipoAtencion.MinimumWidth = 6;
-            this.tipoAtencion.Name = "tipoAtencion";
-            this.tipoAtencion.Width = 89;
-            // 
-            // rndTiempoConsulta
-            // 
-            this.rndTiempoConsulta.HeaderText = "RND";
-            this.rndTiempoConsulta.Name = "rndTiempoConsulta";
-            this.rndTiempoConsulta.Width = 53;
-            // 
-            // tiempoConsulta
-            // 
-            this.tiempoConsulta.HeaderText = "Tiempo Consulta";
-            this.tiempoConsulta.Name = "tiempoConsulta";
-            this.tiempoConsulta.Width = 102;
-            // 
-            // finConsultaM1
-            // 
-            this.finConsultaM1.HeaderText = "Fin consulta M1";
-            this.finConsultaM1.Name = "finConsultaM1";
-            this.finConsultaM1.Width = 98;
-            // 
-            // finConsultaM2
-            // 
-            this.finConsultaM2.HeaderText = "Fin consulta M2";
-            this.finConsultaM2.Name = "finConsultaM2";
-            this.finConsultaM2.Width = 98;
-            // 
-            // rndCalmante
-            // 
-            this.rndCalmante.HeaderText = "RND";
-            this.rndCalmante.Name = "rndCalmante";
-            this.rndCalmante.Width = 53;
-            // 
-            // calmante
-            // 
-            this.calmante.HeaderText = "Calmante";
-            this.calmante.Name = "calmante";
-            this.calmante.Width = 76;
-            // 
-            // tiempoEnfermeria
-            // 
-            this.tiempoEnfermeria.HeaderText = "Fin at. Enf.";
-            this.tiempoEnfermeria.Name = "tiempoEnfermeria";
-            this.tiempoEnfermeria.Width = 77;
-            // 
-            // estadoMedico1
-            // 
-            this.estadoMedico1.HeaderText = "Estado M1";
-            this.estadoMedico1.Name = "estadoMedico1";
-            this.estadoMedico1.Width = 76;
-            // 
-            // estadoMedico2
-            // 
-            this.estadoMedico2.HeaderText = "Estado M2";
-            this.estadoMedico2.Name = "estadoMedico2";
-            this.estadoMedico2.Width = 76;
-            // 
-            // colaConsulta
-            // 
-            this.colaConsulta.HeaderText = "Cola cons. Médica";
-            this.colaConsulta.Name = "colaConsulta";
-            this.colaConsulta.Width = 110;
-            // 
-            // estadoEnfermero
-            // 
-            this.estadoEnfermero.HeaderText = "Estado Enfermero";
-            this.estadoEnfermero.Name = "estadoEnfermero";
-            this.estadoEnfermero.Width = 108;
-            // 
-            // colaEnfermero
-            // 
-            this.colaEnfermero.HeaderText = "Cola Enfermero";
-            this.colaEnfermero.Name = "colaEnfermero";
-            this.colaEnfermero.Width = 97;
-            // 
-            // acTiempoOcupacionEnf
-            // 
-            this.acTiempoOcupacionEnf.HeaderText = "AC tiempo ocup. enfermero";
-            this.acTiempoOcupacionEnf.Name = "acTiempoOcupacionEnf";
-            this.acTiempoOcupacionEnf.Width = 150;
-            // 
-            // cantidadTotalPacientes
-            // 
-            this.cantidadTotalPacientes.HeaderText = "AC pacientes atendidos";
-            this.cantidadTotalPacientes.Name = "cantidadTotalPacientes";
-            this.cantidadTotalPacientes.Width = 134;
-            // 
-            // cantidadCalmantes
-            // 
-            this.cantidadCalmantes.HeaderText = "AC calmantes";
-            this.cantidadCalmantes.Name = "cantidadCalmantes";
-            this.cantidadCalmantes.Width = 91;
-            // 
-            // acTiempoPermanencia
-            // 
-            this.acTiempoPermanencia.HeaderText = "AC tiempo permanencia";
-            this.acTiempoPermanencia.Name = "acTiempoPermanencia";
-            this.acTiempoPermanencia.Width = 133;
             // 
             // txtIteraciones
             // 
@@ -657,6 +487,192 @@
             this.lblPacientesAtendidos.Size = new System.Drawing.Size(0, 14);
             this.lblPacientesAtendidos.TabIndex = 38;
             // 
+            // evento
+            // 
+            this.evento.FillWeight = 211.7013F;
+            this.evento.HeaderText = "Evento";
+            this.evento.MinimumWidth = 6;
+            this.evento.Name = "evento";
+            this.evento.Width = 65;
+            // 
+            // reloj
+            // 
+            this.reloj.FillWeight = 192.9475F;
+            this.reloj.HeaderText = "Reloj (min)";
+            this.reloj.MinimumWidth = 6;
+            this.reloj.Name = "reloj";
+            this.reloj.Width = 82;
+            // 
+            // rndTiempoLlegadaCons
+            // 
+            this.rndTiempoLlegadaCons.FillWeight = 175.9983F;
+            this.rndTiempoLlegadaCons.HeaderText = "RND";
+            this.rndTiempoLlegadaCons.MinimumWidth = 6;
+            this.rndTiempoLlegadaCons.Name = "rndTiempoLlegadaCons";
+            this.rndTiempoLlegadaCons.Width = 53;
+            // 
+            // tiempoLlegadaCons
+            // 
+            this.tiempoLlegadaCons.FillWeight = 160.6802F;
+            this.tiempoLlegadaCons.HeaderText = "T. entre llegadas cons.";
+            this.tiempoLlegadaCons.MinimumWidth = 6;
+            this.tiempoLlegadaCons.Name = "tiempoLlegadaCons";
+            this.tiempoLlegadaCons.Width = 105;
+            // 
+            // proxLlegadaCons
+            // 
+            this.proxLlegadaCons.FillWeight = 176.2034F;
+            this.proxLlegadaCons.HeaderText = "Próx. llegada consulta";
+            this.proxLlegadaCons.MinimumWidth = 8;
+            this.proxLlegadaCons.Name = "proxLlegadaCons";
+            this.proxLlegadaCons.Width = 126;
+            // 
+            // rndTiempoLlegadaEnf
+            // 
+            this.rndTiempoLlegadaEnf.FillWeight = 157.7981F;
+            this.rndTiempoLlegadaEnf.HeaderText = "RND";
+            this.rndTiempoLlegadaEnf.MinimumWidth = 8;
+            this.rndTiempoLlegadaEnf.Name = "rndTiempoLlegadaEnf";
+            this.rndTiempoLlegadaEnf.Width = 53;
+            // 
+            // tiempoLlegadaEnf
+            // 
+            this.tiempoLlegadaEnf.FillWeight = 141.5182F;
+            this.tiempoLlegadaEnf.HeaderText = "T. entre llegadas enf.";
+            this.tiempoLlegadaEnf.MinimumWidth = 8;
+            this.tiempoLlegadaEnf.Name = "tiempoLlegadaEnf";
+            this.tiempoLlegadaEnf.Width = 105;
+            // 
+            // ProxLlegadaEnf
+            // 
+            this.ProxLlegadaEnf.HeaderText = "Próx. llegada enf.";
+            this.ProxLlegadaEnf.Name = "ProxLlegadaEnf";
+            this.ProxLlegadaEnf.Width = 89;
+            // 
+            // rndTipoEnf
+            // 
+            this.rndTipoEnf.FillWeight = 105.9319F;
+            this.rndTipoEnf.HeaderText = "RND";
+            this.rndTipoEnf.MinimumWidth = 6;
+            this.rndTipoEnf.Name = "rndTipoEnf";
+            this.rndTipoEnf.Width = 53;
+            // 
+            // tipoAtencion
+            // 
+            this.tipoAtencion.FillWeight = 97.35632F;
+            this.tipoAtencion.HeaderText = "Tipo Atención";
+            this.tipoAtencion.MinimumWidth = 6;
+            this.tipoAtencion.Name = "tipoAtencion";
+            this.tipoAtencion.Width = 89;
+            // 
+            // rndTiempoConsulta
+            // 
+            this.rndTiempoConsulta.HeaderText = "RND";
+            this.rndTiempoConsulta.Name = "rndTiempoConsulta";
+            this.rndTiempoConsulta.Width = 53;
+            // 
+            // tiempoConsulta
+            // 
+            this.tiempoConsulta.HeaderText = "Tiempo Consulta";
+            this.tiempoConsulta.Name = "tiempoConsulta";
+            this.tiempoConsulta.Width = 102;
+            // 
+            // finConsultaM1
+            // 
+            this.finConsultaM1.HeaderText = "Fin consulta M1";
+            this.finConsultaM1.Name = "finConsultaM1";
+            this.finConsultaM1.Width = 98;
+            // 
+            // finConsultaM2
+            // 
+            this.finConsultaM2.HeaderText = "Fin consulta M2";
+            this.finConsultaM2.Name = "finConsultaM2";
+            this.finConsultaM2.Width = 98;
+            // 
+            // rndCalmante
+            // 
+            this.rndCalmante.HeaderText = "RND";
+            this.rndCalmante.Name = "rndCalmante";
+            this.rndCalmante.Width = 53;
+            // 
+            // calmante
+            // 
+            this.calmante.HeaderText = "Calmante";
+            this.calmante.Name = "calmante";
+            this.calmante.Width = 76;
+            // 
+            // tiempoEnfermeria
+            // 
+            this.tiempoEnfermeria.HeaderText = "Fin apl. cur/vac";
+            this.tiempoEnfermeria.Name = "tiempoEnfermeria";
+            this.tiempoEnfermeria.Width = 97;
+            // 
+            // finCalmante
+            // 
+            this.finCalmante.HeaderText = "Fin apl. calmante";
+            this.finCalmante.Name = "finCalmante";
+            this.finCalmante.Width = 103;
+            // 
+            // estadoMedico1
+            // 
+            this.estadoMedico1.HeaderText = "Estado M1";
+            this.estadoMedico1.Name = "estadoMedico1";
+            this.estadoMedico1.Width = 76;
+            // 
+            // estadoMedico2
+            // 
+            this.estadoMedico2.HeaderText = "Estado M2";
+            this.estadoMedico2.Name = "estadoMedico2";
+            this.estadoMedico2.Width = 76;
+            // 
+            // colaConsulta
+            // 
+            this.colaConsulta.HeaderText = "Cola cons. Médica";
+            this.colaConsulta.Name = "colaConsulta";
+            this.colaConsulta.Width = 110;
+            // 
+            // estadoEnfermero
+            // 
+            this.estadoEnfermero.HeaderText = "Estado Enfermero";
+            this.estadoEnfermero.Name = "estadoEnfermero";
+            this.estadoEnfermero.Width = 108;
+            // 
+            // colaEnfermero
+            // 
+            this.colaEnfermero.HeaderText = "Cola cur/vac";
+            this.colaEnfermero.Name = "colaEnfermero";
+            this.colaEnfermero.Width = 86;
+            // 
+            // colaCalmante
+            // 
+            this.colaCalmante.HeaderText = "Cola apl. calmante";
+            this.colaCalmante.Name = "colaCalmante";
+            this.colaCalmante.Width = 109;
+            // 
+            // acTiempoOcupacionEnf
+            // 
+            this.acTiempoOcupacionEnf.HeaderText = "AC tiempo ocup. enfermero";
+            this.acTiempoOcupacionEnf.Name = "acTiempoOcupacionEnf";
+            this.acTiempoOcupacionEnf.Width = 150;
+            // 
+            // cantidadTotalPacientes
+            // 
+            this.cantidadTotalPacientes.HeaderText = "AC pacientes atendidos";
+            this.cantidadTotalPacientes.Name = "cantidadTotalPacientes";
+            this.cantidadTotalPacientes.Width = 134;
+            // 
+            // cantidadCalmantes
+            // 
+            this.cantidadCalmantes.HeaderText = "AC calmantes";
+            this.cantidadCalmantes.Name = "cantidadCalmantes";
+            this.cantidadCalmantes.Width = 91;
+            // 
+            // acTiempoPermanencia
+            // 
+            this.acTiempoPermanencia.HeaderText = "AC tiempo permanencia";
+            this.acTiempoPermanencia.Name = "acTiempoPermanencia";
+            this.acTiempoPermanencia.Width = 133;
+            // 
             // Menu
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 14F);
@@ -764,11 +780,13 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn rndCalmante;
         private System.Windows.Forms.DataGridViewTextBoxColumn calmante;
         private System.Windows.Forms.DataGridViewTextBoxColumn tiempoEnfermeria;
+        private System.Windows.Forms.DataGridViewTextBoxColumn finCalmante;
         private System.Windows.Forms.DataGridViewTextBoxColumn estadoMedico1;
         private System.Windows.Forms.DataGridViewTextBoxColumn estadoMedico2;
         private System.Windows.Forms.DataGridViewTextBoxColumn colaConsulta;
         private System.Windows.Forms.DataGridViewTextBoxColumn estadoEnfermero;
         private System.Windows.Forms.DataGridViewTextBoxColumn colaEnfermero;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colaCalmante;
         private System.Windows.Forms.DataGridViewTextBoxColumn acTiempoOcupacionEnf;
         private System.Windows.Forms.DataGridViewTextBoxColumn cantidadTotalPacientes;
         private System.Windows.Forms.DataGridViewTextBoxColumn cantidadCalmantes;
