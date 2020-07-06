@@ -1043,6 +1043,9 @@ namespace TP7_SIM.Formularios
                         }
                     }
 
+                    //última fila
+                    dgv_datos.Rows.Add(vectorEstado[0]);
+
                     promedioTiempoPermanencia = acTiempoPerm / acPacientesAtendidos;
                     lblPromedioPermanencia.Text = promedioTiempoPermanencia.ToString() + " min";
                     promedioTiempoOcupacion = acTiempoOcupacion / minuto;
