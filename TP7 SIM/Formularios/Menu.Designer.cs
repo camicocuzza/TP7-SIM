@@ -142,7 +142,7 @@
             // tbxMediaCons
             // 
             this.tbxMediaCons.Location = new System.Drawing.Point(58, 37);
-            this.tbxMediaCons.MaxLength = 4;
+            this.tbxMediaCons.MaxLength = 5;
             this.tbxMediaCons.Name = "tbxMediaCons";
             this.tbxMediaCons.Size = new System.Drawing.Size(31, 20);
             this.tbxMediaCons.TabIndex = 0;
@@ -170,7 +170,7 @@
             // tbxMediaEnf
             // 
             this.tbxMediaEnf.Location = new System.Drawing.Point(54, 37);
-            this.tbxMediaEnf.MaxLength = 4;
+            this.tbxMediaEnf.MaxLength = 5;
             this.tbxMediaEnf.Name = "tbxMediaEnf";
             this.tbxMediaEnf.Size = new System.Drawing.Size(32, 20);
             this.tbxMediaEnf.TabIndex = 1;
@@ -392,7 +392,7 @@
             // txtIteraciones
             // 
             this.txtIteraciones.Location = new System.Drawing.Point(69, 33);
-            this.txtIteraciones.MaxLength = 4;
+            this.txtIteraciones.MaxLength = 5;
             this.txtIteraciones.Name = "txtIteraciones";
             this.txtIteraciones.Size = new System.Drawing.Size(45, 20);
             this.txtIteraciones.TabIndex = 21;
@@ -420,7 +420,7 @@
             // tbxHastaCM
             // 
             this.tbxHastaCM.Location = new System.Drawing.Point(57, 66);
-            this.tbxHastaCM.MaxLength = 4;
+            this.tbxHastaCM.MaxLength = 5;
             this.tbxHastaCM.Name = "tbxHastaCM";
             this.tbxHastaCM.Size = new System.Drawing.Size(33, 20);
             this.tbxHastaCM.TabIndex = 7;
@@ -428,7 +428,7 @@
             // tbxDesdeCM
             // 
             this.tbxDesdeCM.Location = new System.Drawing.Point(57, 34);
-            this.tbxDesdeCM.MaxLength = 4;
+            this.tbxDesdeCM.MaxLength = 5;
             this.tbxDesdeCM.Name = "tbxDesdeCM";
             this.tbxDesdeCM.Size = new System.Drawing.Size(33, 20);
             this.tbxDesdeCM.TabIndex = 6;
@@ -474,7 +474,7 @@
             // tbxDemoraCuracion
             // 
             this.tbxDemoraCuracion.Location = new System.Drawing.Point(54, 37);
-            this.tbxDemoraCuracion.MaxLength = 4;
+            this.tbxDemoraCuracion.MaxLength = 5;
             this.tbxDemoraCuracion.Name = "tbxDemoraCuracion";
             this.tbxDemoraCuracion.Size = new System.Drawing.Size(34, 20);
             this.tbxDemoraCuracion.TabIndex = 1;
@@ -502,7 +502,7 @@
             // tbxDemoraVacuna
             // 
             this.tbxDemoraVacuna.Location = new System.Drawing.Point(54, 37);
-            this.tbxDemoraVacuna.MaxLength = 4;
+            this.tbxDemoraVacuna.MaxLength = 5;
             this.tbxDemoraVacuna.Name = "tbxDemoraVacuna";
             this.tbxDemoraVacuna.Size = new System.Drawing.Size(33, 20);
             this.tbxDemoraVacuna.TabIndex = 1;
@@ -611,7 +611,7 @@
             // tbxDemoraCalmante
             // 
             this.tbxDemoraCalmante.Location = new System.Drawing.Point(54, 37);
-            this.tbxDemoraCalmante.MaxLength = 4;
+            this.tbxDemoraCalmante.MaxLength = 5;
             this.tbxDemoraCalmante.Name = "tbxDemoraCalmante";
             this.tbxDemoraCalmante.Size = new System.Drawing.Size(34, 20);
             this.tbxDemoraCalmante.TabIndex = 1;
