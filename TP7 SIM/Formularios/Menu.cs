@@ -54,7 +54,7 @@ namespace TP7_SIM.Formularios
             Paciente paciente = new Paciente();
             paciente.hora_llegada = reloj;
             paciente.id = total_pacientes.Count();
-            evento = "Llegada Consulta P" + ((paciente.id)+1).ToString();
+            evento = "Llegada Consulta P" + ((paciente.id) + 1).ToString();
 
             List<double> result = new List<double>();
             if (medico1.estado == "Libre")
@@ -153,7 +153,7 @@ namespace TP7_SIM.Formularios
         }
 
         public List<double> llegadaPacienteEnf(List<Paciente> total_pacientes, double mediaEnf, object[][] vector, double reloj, Medico medico1, Medico medico2,
-            Enfermero enfermero1, double demoraCuracion, double demoraVacunacion, double acTiempoPermanencia, double acTOcupacion, double acPacientesAtendidos, 
+            Enfermero enfermero1, double demoraCuracion, double demoraVacunacion, double acTiempoPermanencia, double acTOcupacion, double acPacientesAtendidos,
             double acCalmantes, double proxLlegadaCons)
         {
             List<double> result = new List<double>();
@@ -295,7 +295,7 @@ namespace TP7_SIM.Formularios
             {
                 Paciente pacAtendido = new Paciente();
                 pacAtendido = medico1.pacienteAtendido;
-                evento = "Fin consulta médica P" + ((pacAtendido.id)+1).ToString();
+                evento = "Fin consulta médica P" + ((pacAtendido.id) + 1).ToString();
                 rndCalmante = random.NextDouble();
 
                 medico1.pacienteAtendido = null;
@@ -314,7 +314,7 @@ namespace TP7_SIM.Formularios
                         {
                             if (pacAtendido.id == p.id)
                             {
-                                p.estado = pacAtendido.estado; 
+                                p.estado = pacAtendido.estado;
                             }
                         }
                     }
@@ -331,7 +331,7 @@ namespace TP7_SIM.Formularios
                         {
                             if (pacAtendido.id == p.id)
                             {
-                                p.estado = pacAtendido.estado; 
+                                p.estado = pacAtendido.estado;
 
                             }
                         }
@@ -348,7 +348,7 @@ namespace TP7_SIM.Formularios
                     acPacientesAtendidos++;
 
                     pacAtendido.estado = "Finalizado";
-                    
+
 
                     foreach (Paciente p in total_pacientes)
                     {
@@ -386,7 +386,7 @@ namespace TP7_SIM.Formularios
                     medico1.pacienteAtendido = null;
                     medico1.estado = "Libre";
                     medico1.finConsulta = 0;
-                    
+
                 }
             }
 
@@ -515,7 +515,7 @@ namespace TP7_SIM.Formularios
 
         //evento fin de enfermería
         public List<double> finEnfermeriaMet(List<Paciente> total_pacientes, Medico medico1, Medico medico2, Enfermero enfermero1, double reloj,
-            double demoraCuracion, double demoraVacunacion, double demoraCalmante, double acTPerm, double acPacientesAtendidos, object[][] vector, 
+            double demoraCuracion, double demoraVacunacion, double demoraCalmante, double acTPerm, double acPacientesAtendidos, object[][] vector,
             double acTiempoOcupacion, double acCalmantes, double proxLlegadaEnf, double proxLlegadaCons)
         {
             List<double> result = new List<double>();
@@ -523,10 +523,10 @@ namespace TP7_SIM.Formularios
             string evento = "Fin Enfermería";
             double demoraEnfermeria;
             double tiempoPermanencia = 0;
-            
+
             Paciente pacienteAtendido = Enfermero.colaEnfermeria.First();
             Enfermero.colaEnfermeria.Dequeue();
-            evento = "Fin Enfermería P" + ((pacienteAtendido.id)+1).ToString();
+            evento = "Fin Enfermería P" + ((pacienteAtendido.id) + 1).ToString();
 
 
             if (enfermero1.finAtencion == reloj)
@@ -599,18 +599,18 @@ namespace TP7_SIM.Formularios
                     }
                 }
             }
-                                             
-                vector[1] = vector[0];
-                vector[0] = new object[] {evento, reloj, 0, 0, proxLlegadaCons, 0, 0, proxLlegadaEnf, 0, "", 0, "", medico1.finConsulta,
+
+            vector[1] = vector[0];
+            vector[0] = new object[] {evento, reloj, 0, 0, proxLlegadaCons, 0, 0, proxLlegadaEnf, 0, "", 0, "", medico1.finConsulta,
                 medico2.finConsulta, 0, "", enfermero1.finAtencion, medico1.estado, medico2.estado, Medico.colaPacientes.Count(), enfermero1.estado,
                 enfermero1.getTamCola(), acTiempoOcupacion, acPacientesAtendidos, acCalmantes, acTPerm};
 
 
-                foreach (Paciente p in total_pacientes)
-                {
-                    Array.Resize(ref vector[0], vector[0].Count() + 1);
-                    vector[0][vector[0].Count() - 1] = p.estado;
-                }
+            foreach (Paciente p in total_pacientes)
+            {
+                Array.Resize(ref vector[0], vector[0].Count() + 1);
+                vector[0][vector[0].Count() - 1] = p.estado;
+            }
 
             if (vector[1][20].ToString() == "Ocupado")
             {
@@ -662,7 +662,7 @@ namespace TP7_SIM.Formularios
             }
             else
             {
-                double iteracion = double.Parse(iter);
+                int iteracion = int.Parse(iter);
                 double desde = double.Parse(des);
                 double hasta = desde + 100.00;
                 double mediaCons = double.Parse(tbxMediaCons.Text);
@@ -688,13 +688,12 @@ namespace TP7_SIM.Formularios
                     double finConsulta1;
                     double finConsulta2;
                     double finEnfermeria;
-                    
+
                     //estadisticas
                     double acPacientesAtendidos = 0;
                     double acTiempoOcupacion = 0;
                     double acCalmantes = 0;
                     double acTiempoPerm = 0;
-
 
                     //promedios
                     double promedioTiempoPermanencia;
@@ -703,20 +702,10 @@ namespace TP7_SIM.Formularios
                     //objetos temporales
                     List<Paciente> estados_pacientes = new List<Paciente>();
 
-                    while (minuto <= iteracion)
+                    for (int i = 0; i <= iteracion; i++)
                     {
-                        /*if (minuto == iteracion)
-                         {
-                             promedioTiempoPermanencia = acTiempoPermanencia / acPacientesAtendidos;
-                             lblPromedioPermanencia.Text = promedioTiempoPermanencia.ToString();
-                             promedioTiempoOcupacion = acTiempoOcupacion / minuto;
-                             lblPromedioOcupacion.Text = promedioTiempoOcupacion.ToString();
-                             lblCantidadCalmantes.Text = acCalmantes.ToString();
-                             lblPacientesAtendidos.Text = acPacientesAtendidos.ToString();
-                          }*/
-
                         //inicialización
-                        if (minuto == 0.0)
+                        if (i == 0)
                         {
                             medico1.estado = "Libre";
                             medico2.estado = "Libre";
@@ -732,7 +721,7 @@ namespace TP7_SIM.Formularios
                             proximaLlegadaCons = Convert.ToDouble(vectorEstado[0][4]);
                             proximaLlegadaEnfe = Convert.ToDouble(vectorEstado[0][7]);
 
-                            List<double> tiemposComparar = new List<double> {proximaLlegadaCons, proximaLlegadaEnfe};
+                            List<double> tiemposComparar = new List<double> { proximaLlegadaCons, proximaLlegadaEnfe };
                             double menorTiempo = tiemposComparar.Min();
                             if (proximaLlegadaCons < proximaLlegadaEnfe)
                             {
@@ -743,7 +732,7 @@ namespace TP7_SIM.Formularios
                                 minuto = proximaLlegadaEnfe;
                             }
 
-                            
+
 
                         }
                         else
@@ -755,7 +744,7 @@ namespace TP7_SIM.Formularios
                             finEnfermeria = Convert.ToDouble(vectorEstado[0][16]);
 
 
-                            List<double> tiemposComparar = new List<double> {proximaLlegadaCons, finConsulta1, finConsulta2, proximaLlegadaEnfe, finEnfermeria };
+                            List<double> tiemposComparar = new List<double> { proximaLlegadaCons, finConsulta1, finConsulta2, proximaLlegadaEnfe, finEnfermeria };
 
                             mayorACero(tiemposComparar);
 
@@ -781,7 +770,7 @@ namespace TP7_SIM.Formularios
                                 vectorEstado[0][25] = acTiempoPerm;
 
 
-                                if (minuto >= desde && minuto <= hasta)
+                                if (i >= desde && i <= hasta)
                                 {
                                     dgv_datos.Rows.Add(vectorEstado[0]);
                                 }
@@ -808,12 +797,12 @@ namespace TP7_SIM.Formularios
                                 vectorEstado[0][25] = acTiempoPerm;
 
 
-                                if (minuto >= desde && minuto <= hasta)
+                                if (i >= desde && i <= hasta)
                                 {
                                     dgv_datos.Rows.Add(vectorEstado[0]);
                                 }
                             }
-                            
+
                             else if (menorTiempo == finEnfermeria)
                             {
                                 minuto = finEnfermeria;
@@ -833,7 +822,7 @@ namespace TP7_SIM.Formularios
                                 acTiempoOcupacion = resultados.Last();
                                 vectorEstado[0][22] = acTiempoOcupacion;
 
-                                if (minuto >= desde && minuto <= hasta)
+                                if (i >= desde && i <= hasta)
                                 {
                                     dgv_datos.Rows.Add(vectorEstado[0]);
                                 }
@@ -851,7 +840,7 @@ namespace TP7_SIM.Formularios
                                 vectorEstado[0][22] = acTiempoOcupacion;
 
 
-                                if (minuto >= desde && minuto <= hasta)
+                                if (i >= desde && i <= hasta)
                                 {
                                     DataGridViewColumn pac_estado = new DataGridViewColumn();
                                     pac_estado.HeaderText = "Estado Paciente" + estados_pacientes.Count().ToString();
@@ -873,7 +862,7 @@ namespace TP7_SIM.Formularios
                                 vectorEstado[0][22] = acTiempoOcupacion;
 
 
-                                if (minuto >= desde && minuto <= hasta)
+                                if (i >= desde && i <= hasta)
                                 {
                                     DataGridViewColumn pac_estado = new DataGridViewColumn();
                                     pac_estado.HeaderText = "Estado Paciente" + estados_pacientes.Count().ToString();
@@ -886,14 +875,13 @@ namespace TP7_SIM.Formularios
                         }
                     }
 
-                    
                     promedioTiempoPermanencia = acTiempoPerm / acPacientesAtendidos;
                     lblPromedioPermanencia.Text = promedioTiempoPermanencia.ToString() + " min";
                     promedioTiempoOcupacion = acTiempoOcupacion / minuto;
-                    lblPromedioOcupacion.Text = (promedioTiempoOcupacion*100).ToString() + "%";
+                    lblPromedioOcupacion.Text = (promedioTiempoOcupacion * 100).ToString() + "%";
                     lblCantidadCalmantes.Text = acCalmantes.ToString();
                     lblPacientesAtendidos.Text = acPacientesAtendidos.ToString();
-                    
+
                 }
 
                 else
@@ -907,11 +895,11 @@ namespace TP7_SIM.Formularios
 
         private void btnLimpiar_Click(object sender, EventArgs e)
         {
-            
+
             tbxDesde.Clear();
-            
+
             tbxDemoraCalmante.Clear();
-            
+
             tbxDemoraCuracion.Clear();
             tbxDemoraVacuna.Clear();
             tbxDesdeCM.Clear();
@@ -954,7 +942,120 @@ namespace TP7_SIM.Formularios
 
         }
 
+        private void txtIteraciones_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar))
+            {
+                e.Handled = true;
+            }
+        }
+
+        private void tbxDesde_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar))
+            {
+                e.Handled = true;
+            }
+        }
+
+        private void tbxMediaCons_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar) && (e.KeyChar != '.'))
+            {
+                e.Handled = true;
+            }
+
+            // solo 1 punto decimal
+            if ((e.KeyChar == '.') && ((sender as TextBox).Text.IndexOf('.') > -1))
+            {
+                e.Handled = true;
+            }
+        }
+
+        private void tbxMediaEnf_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar) && (e.KeyChar != '.'))
+            {
+                e.Handled = true;
+            }
+
+            // solo 1 punto decimal
+            if ((e.KeyChar == '.') && ((sender as TextBox).Text.IndexOf('.') > -1))
+            {
+                e.Handled = true;
+            }
+        }
+
+        private void tbxDesdeCM_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar) && (e.KeyChar != '.'))
+            {
+                e.Handled = true;
+            }
+
+            // solo 1 punto decimal
+            if ((e.KeyChar == '.') && ((sender as TextBox).Text.IndexOf('.') > -1))
+            {
+                e.Handled = true;
+            }
+        }
+
+        private void tbxHastaCM_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar) && (e.KeyChar != '.'))
+            {
+                e.Handled = true;
+            }
+
+            // solo 1 punto decimal
+            if ((e.KeyChar == '.') && ((sender as TextBox).Text.IndexOf('.') > -1))
+            {
+                e.Handled = true;
+            }
+        }
+
+        private void tbxDemoraVacuna_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar) && (e.KeyChar != '.'))
+            {
+                e.Handled = true;
+            }
+
+            // solo 1 punto decimal
+            if ((e.KeyChar == '.') && ((sender as TextBox).Text.IndexOf('.') > -1))
+            {
+                e.Handled = true;
+            }
+        }
+
+        private void tbxDemoraCuracion_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar) && (e.KeyChar != '.'))
+            {
+                e.Handled = true;
+            }
+
+            // solo 1 punto decimal
+            if ((e.KeyChar == '.') && ((sender as TextBox).Text.IndexOf('.') > -1))
+            {
+                e.Handled = true;
+            }
+        }
+
+        private void tbxDemoraCalmante_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar) && (e.KeyChar != '.'))
+            {
+                e.Handled = true;
+            }
+
+            // solo 1 punto decimal
+            if ((e.KeyChar == '.') && ((sender as TextBox).Text.IndexOf('.') > -1))
+            {
+                e.Handled = true;
+            }
+        }
     }
-    }
+}
 
  
