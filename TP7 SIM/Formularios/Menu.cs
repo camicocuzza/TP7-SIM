@@ -576,15 +576,12 @@ namespace TP7_SIM.Formularios
             Enfermero.colaEnfermeria.Dequeue();
             evento = "Fin cur/vac P" + ((pacienteAtendido.id) + 1).ToString();
 
-
-            if (enfermero1.finAtencion == reloj)
-            {
                 tiempoPermanencia = reloj - pacienteAtendido.hora_llegada;
                 acTPerm = acTPerm + tiempoPermanencia;
                 acPacientesAtendidos++;
 
                 //ver si quedan pacientes para cur/vac
-                if (Enfermero.colaEnfermeria.Count() > 0)
+                if (enfermero1.getTamColaPrioridad() != 0)
                 {
                     Paciente siguiente = Enfermero.colaEnfermeria.First();
                     
@@ -650,7 +647,7 @@ namespace TP7_SIM.Formularios
                     enfermero1.finAtencionCalmante = demoraEnfermeria + reloj;
 
                     }
-                }
+                
 
                 //No hay cola
                 else
@@ -687,7 +684,7 @@ namespace TP7_SIM.Formularios
                 acTiempoOcupacion = acTiempoOcupacion + (reloj - Double.Parse(vector[1][1].ToString()));
             }
 
-            result.Add(acCalmantes);
+            
             result.Add(acTPerm);
             result.Add(acPacientesAtendidos);
             result.Add(acTiempoOcupacion);
@@ -918,8 +915,6 @@ namespace TP7_SIM.Formularios
                                 acPacientesAtendidos = resultados.Last();
                                 vectorEstado[0][25] = acPacientesAtendidos;
 
-                                //vectorEstado[0][22] = acCalmantes;
-
                                 acTiempoPerm = resultados[0];
                                 vectorEstado[0][27] = acTiempoPerm;
 
@@ -941,10 +936,8 @@ namespace TP7_SIM.Formularios
                                 acTiempoOcupacion = resultados[1];
                                 vectorEstado[0][24] = acTiempoOcupacion;
 
-                                acPacientesAtendidos = resultados.Last();
+                                acPacientesAtendidos = resultados[2];
                                 vectorEstado[0][25] = acPacientesAtendidos;
-
-                                //vectorEstado[0][22] = acCalmantes;
 
                                 acTiempoPerm = resultados[0];
                                 vectorEstado[0][27] = acTiempoPerm;
@@ -963,16 +956,13 @@ namespace TP7_SIM.Formularios
                                 resultados = finEnfCurVac(estados_pacientes, medico1, medico2, enfermero1, minuto, demoraCuracion, demoraVacunacion, demoraCalmante, acTiempoPerm,
                                     acPacientesAtendidos, vectorEstado, acTiempoOcupacion, acCalmantes, proximaLlegadaEnfe, proximaLlegadaCons);
 
-                                acPacientesAtendidos = resultados[2];
+                                acPacientesAtendidos = resultados[1];
                                 vectorEstado[0][25] = acPacientesAtendidos;
 
-                                acCalmantes = resultados.First();
-                                vectorEstado[0][26] = acCalmantes;
-
-                                acTiempoPerm = resultados[1];
+                                acTiempoPerm = resultados[0];
                                 vectorEstado[0][27] = acTiempoPerm;
 
-                                acTiempoOcupacion = resultados.Last();
+                                acTiempoOcupacion = resultados[2];
                                 vectorEstado[0][24] = acTiempoOcupacion;
 
                                 if (i >= desde && i <= hasta)
@@ -991,13 +981,13 @@ namespace TP7_SIM.Formularios
                                 acPacientesAtendidos = resultados[2];
                                 vectorEstado[0][25] = acPacientesAtendidos;
 
-                                acCalmantes = resultados.First();
+                                acCalmantes = resultados[0];
                                 vectorEstado[0][26] = acCalmantes;
 
                                 acTiempoPerm = resultados[1];
                                 vectorEstado[0][27] = acTiempoPerm;
 
-                                acTiempoOcupacion = resultados.Last();
+                                acTiempoOcupacion = resultados[3];
                                 vectorEstado[0][24] = acTiempoOcupacion;
 
                                 if (i >= desde && i <= hasta)
