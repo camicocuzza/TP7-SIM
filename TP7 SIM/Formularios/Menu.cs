@@ -42,7 +42,7 @@ namespace TP7_SIM.Formularios
         }
 
         public List<double> llegadaPacienteCons(List<Paciente> total_pacientes, double mediaCons, object[][] vector, double reloj, Medico medico1, Medico medico2,
-            Enfermero enfermero1, double a, double b, double acTiempoPermanencia, double acTiempoOcupacion, double acPacientesAtendidos, double acCalmantes, double proxLlegadaEnf)
+            Enfermero enfermero1, double a, double b, double acTiempoPermanencia, double acTiempoOcupacion, double acPacientesAtendidos, double acCalmantes, double proxLlegadaEnf, int it)
         {
             string evento = "Llegada Consulta";
             double rndLlegadaCons = random.NextDouble();
@@ -85,8 +85,8 @@ namespace TP7_SIM.Formularios
                     }
                 }
 
-                vector[0][10] = rndDemoraCons;
-                vector[0][11] = demoraConsulta;
+                vector[0][11] = rndDemoraCons;
+                vector[0][12] = demoraConsulta;
 
 
             }
@@ -110,8 +110,8 @@ namespace TP7_SIM.Formularios
                 medico2.finConsulta = demoraConsulta + reloj;
                 medico2.pacienteAtendido = paciente;
 
-                vector[0][10] = rndDemoraCons;
-                vector[0][11] = demoraConsulta;
+                vector[0][11] = rndDemoraCons;
+                vector[0][12] = demoraConsulta;
             }
 
             //los dos médicos ocupados
@@ -132,7 +132,7 @@ namespace TP7_SIM.Formularios
 
             vector[1] = vector[0];
             total_pacientes.Add(paciente);
-            vector[0] = new object[] {evento, reloj, rndLlegadaCons, entreLlegadaConsulta, proximaLlegadaCons, 0, 0, proxLlegadaEnf, 0, "", rndDemoraCons, demoraConsulta, medico1.finConsulta,
+            vector[0] = new object[] {it, evento, reloj, rndLlegadaCons, entreLlegadaConsulta, proximaLlegadaCons, 0, 0, proxLlegadaEnf, 0, "", rndDemoraCons, demoraConsulta, medico1.finConsulta,
             medico2.finConsulta, 0, "", enfermero1.finAtencion, enfermero1.finAtencionCalmante, medico1.estado, medico2.estado, Medico.colaPacientes.Count(), enfermero1.estado,
             enfermero1.getTamColaPrioridad(), enfermero1.getTamColaCalmantes(), acTiempoOcupacion, acPacientesAtendidos, acCalmantes, acTiempoPermanencia };
 
@@ -142,9 +142,9 @@ namespace TP7_SIM.Formularios
                 vector[0][vector[0].Count() - 1] = p.estado;
             }
 
-            if (vector[1][21].ToString() != "Libre")
+            if (vector[1][22].ToString() != "Libre")
             {
-                acTiempoOcupacion = acTiempoOcupacion + (reloj - Double.Parse(vector[1][1].ToString()));
+                acTiempoOcupacion = acTiempoOcupacion + (reloj - Double.Parse(vector[1][2].ToString()));
             }
 
             result.Add(acTiempoOcupacion);
@@ -154,7 +154,7 @@ namespace TP7_SIM.Formularios
 
         public List<double> llegadaPacienteEnf(List<Paciente> total_pacientes, double mediaEnf, object[][] vector, double reloj, Medico medico1, Medico medico2,
             Enfermero enfermero1, double demoraCuracion, double demoraVacunacion, double acTiempoPermanencia, double acTOcupacion, double acPacientesAtendidos,
-            double acCalmantes, double proxLlegadaCons)
+            double acCalmantes, double proxLlegadaCons, int it)
         {
             List<double> result = new List<double>();
 
@@ -222,8 +222,8 @@ namespace TP7_SIM.Formularios
                 
                 enfermero1.finAtencion = demoraEnfermeria + reloj;
                 
-                vector[0][8] = rndTipoAtencion;
-                vector[0][9] = tipoAtencion;
+                vector[0][9] = rndTipoAtencion;
+                vector[0][10] = tipoAtencion;
             }
 
             //no está atendiendo a uno de calmante
@@ -296,14 +296,14 @@ namespace TP7_SIM.Formularios
 
                 enfermero1.finAtencion = demoraEnfermeria + reloj;
               
-                vector[0][8] = rndTipoAtencion;
-                vector[0][9] = tipoAtencion;
+                vector[0][9] = rndTipoAtencion;
+                vector[0][10] = tipoAtencion;
             }
         
 
             vector[1] = vector[0];
             total_pacientes.Add(paciente);
-            vector[0] = new object[] {evento, reloj, 0, 0, proxLlegadaCons, rndLlegadaEnf, entreLlegadaEnf, proximaLlegadaEnf,rndTipoAtencion, tipoAtencion, 0, 0, medico1.finConsulta,
+            vector[0] = new object[] {it, evento, reloj, 0, 0, proxLlegadaCons, rndLlegadaEnf, entreLlegadaEnf, proximaLlegadaEnf,rndTipoAtencion, tipoAtencion, 0, 0, medico1.finConsulta,
             medico2.finConsulta, 0, "", enfermero1.finAtencion, enfermero1.finAtencionCalmante,medico1.estado, medico2.estado, Medico.colaPacientes.Count(), enfermero1.estado,
             enfermero1.getTamColaPrioridad(), enfermero1.getTamColaCalmantes(), acTOcupacion, acPacientesAtendidos, acCalmantes, acTiempoPermanencia};
 
@@ -314,9 +314,9 @@ namespace TP7_SIM.Formularios
                 vector[0][vector[0].Count() - 1] = p.estado;
             }
 
-            if (vector[1][21].ToString() != "Libre")
+            if (vector[1][22].ToString() != "Libre")
             {
-                acTOcupacion = acTOcupacion + (reloj - Double.Parse(vector[1][1].ToString()));
+                acTOcupacion = acTOcupacion + (reloj - Double.Parse(vector[1][2].ToString()));
             }
 
             result.Add(acTOcupacion);
@@ -326,7 +326,7 @@ namespace TP7_SIM.Formularios
         //evento fin de consulta médica
         public List<double> finConsulta(List<Paciente> total_pacientes, double finConsulta, double a, double b, Medico medico1, Medico medico2, Enfermero enfermero1,
             double demoraCalmante, double reloj, double proximaLlegada, double acTPerm, double acPacientesAtendidos, object[][] vector, double acTOcupacion,
-            double acCalmantes, double proxLlegadaEnf, double proxLlegadaCons)
+            double acCalmantes, double proxLlegadaEnf, double proxLlegadaCons, int it)
         {
             List<double> result = new List<double>();
 
@@ -539,7 +539,7 @@ namespace TP7_SIM.Formularios
             }
 
             vector[1] = vector[0];
-            vector[0] = new object[] {evento, reloj, 0, 0, proxLlegadaCons, 0, 0, proxLlegadaEnf, 0, "", rndDemoraCons, demoraConsulta, medico1.finConsulta,
+            vector[0] = new object[]{it, evento, reloj, 0, 0, proxLlegadaCons, 0, 0, proxLlegadaEnf, 0, "", rndDemoraCons, demoraConsulta, medico1.finConsulta,
                 medico2.finConsulta, rndCalmante, calmante, enfermero1.finAtencion, enfermero1.finAtencionCalmante, medico1.estado, medico2.estado, Medico.colaPacientes.Count(), enfermero1.estado,
                  enfermero1.getTamColaPrioridad(), enfermero1.getTamColaCalmantes(), acTOcupacion, acPacientesAtendidos, acCalmantes, acTPerm };
 
@@ -549,9 +549,9 @@ namespace TP7_SIM.Formularios
                 vector[0][vector[0].Count() - 1] = p.estado;
             }
 
-            if (vector[1][21].ToString() != "Libre")
+            if (vector[1][22].ToString() != "Libre")
             {
-                acTOcupacion = acTOcupacion + (reloj - Double.Parse(vector[1][1].ToString()));
+                acTOcupacion = acTOcupacion + (reloj - Double.Parse(vector[1][2].ToString()));
             }
             result.Add(acTPerm);
             result.Add(acTOcupacion);
@@ -564,7 +564,7 @@ namespace TP7_SIM.Formularios
         //evento fin de enfermería curación o vacunación
         public List<double> finEnfCurVac(List<Paciente> total_pacientes, Medico medico1, Medico medico2, Enfermero enfermero1, double reloj,
             double demoraCuracion, double demoraVacunacion, double demoraCalmante, double acTPerm, double acPacientesAtendidos, object[][] vector,
-            double acTiempoOcupacion, double acCalmantes, double proxLlegadaEnf, double proxLlegadaCons)
+            double acTiempoOcupacion, double acCalmantes, double proxLlegadaEnf, double proxLlegadaCons, int it)
         {
             List<double> result = new List<double>();
 
@@ -668,7 +668,7 @@ namespace TP7_SIM.Formularios
                 }
             
             vector[1] = vector[0];
-            vector[0] = new object[] {evento, reloj, 0, 0, proxLlegadaCons, 0, 0, proxLlegadaEnf, 0, "", 0, "", medico1.finConsulta,
+            vector[0] = new object[] {it, evento, reloj, 0, 0, proxLlegadaCons, 0, 0, proxLlegadaEnf, 0, "", 0, "", medico1.finConsulta,
                 medico2.finConsulta, 0, "", enfermero1.finAtencion, enfermero1.finAtencionCalmante, medico1.estado, medico2.estado, Medico.colaPacientes.Count(), enfermero1.estado,
                 enfermero1.getTamColaPrioridad(), enfermero1.getTamColaCalmantes(), acTiempoOcupacion, acPacientesAtendidos, acCalmantes, acTPerm};
 
@@ -679,9 +679,9 @@ namespace TP7_SIM.Formularios
                 vector[0][vector[0].Count() - 1] = p.estado;
             }
 
-            if (vector[1][21].ToString() != "Libre")
+            if (vector[1][22].ToString() != "Libre")
             {
-                acTiempoOcupacion = acTiempoOcupacion + (reloj - Double.Parse(vector[1][1].ToString()));
+                acTiempoOcupacion = acTiempoOcupacion + (reloj - Double.Parse(vector[1][2].ToString()));
             }
 
             
@@ -695,7 +695,7 @@ namespace TP7_SIM.Formularios
         //evento fin de enfermería calmante
         public List<double> finEnfCalmante(List<Paciente> total_pacientes, Medico medico1, Medico medico2, Enfermero enfermero1, double reloj,
             double demoraCuracion, double demoraVacunacion, double demoraCalmante, double acTPerm, double acPacientesAtendidos, object[][] vector,
-            double acTiempoOcupacion, double acCalmantes, double proxLlegadaEnf, double proxLlegadaCons)
+            double acTiempoOcupacion, double acCalmantes, double proxLlegadaEnf, double proxLlegadaCons, int it)
         {
             List<double> result = new List<double>();
 
@@ -749,7 +749,7 @@ namespace TP7_SIM.Formularios
             }
 
             vector[1] = vector[0];
-            vector[0] = new object[] {evento, reloj, 0, 0, proxLlegadaCons, 0, 0, proxLlegadaEnf, 0, "", 0, "", medico1.finConsulta,
+            vector[0] = new object[] {it, evento, reloj, 0, 0, proxLlegadaCons, 0, 0, proxLlegadaEnf, 0, "", 0, "", medico1.finConsulta,
                 medico2.finConsulta, 0, "", enfermero1.finAtencion, enfermero1.finAtencionCalmante, medico1.estado, medico2.estado, Medico.colaPacientes.Count(), enfermero1.estado,
                 enfermero1.getTamColaPrioridad(), enfermero1.getTamColaCalmantes(), acTiempoOcupacion, acPacientesAtendidos, acCalmantes, acTPerm};
 
@@ -760,9 +760,9 @@ namespace TP7_SIM.Formularios
                 vector[0][vector[0].Count() - 1] = p.estado;
             }
 
-            if (vector[1][21].ToString() != "Libre")
+            if (vector[1][22].ToString() != "Libre")
             {
-                acTiempoOcupacion = acTiempoOcupacion + (reloj - Double.Parse(vector[1][1].ToString()));
+                acTiempoOcupacion = acTiempoOcupacion + (reloj - Double.Parse(vector[1][2].ToString()));
             }
 
             result.Add(acCalmantes);
@@ -784,7 +784,7 @@ namespace TP7_SIM.Formularios
             double entre_LlegadaEnf = -mediaEnf * Math.Log(1 - rndLlegadaEnf);
             double proxLlegadaEnf = entre_LlegadaEnf + reloj;
 
-            vector[0] = new object[] {evento, reloj, rndLlegadaCons, entre_LlegadaCons, proxLlegadaCons, rndLlegadaEnf, entre_LlegadaEnf, proxLlegadaEnf,
+            vector[0] = new object[] {0, evento, reloj, rndLlegadaCons, entre_LlegadaCons, proxLlegadaCons, rndLlegadaEnf, entre_LlegadaEnf, proxLlegadaEnf,
                 0, "", 0, 0, 0, 0, 0, "", 0, 0, "Libre", "Libre", 0, "Libre", 0, 0, 0, 0, 0, 0};
             vector[1] = vector[0];
         }
@@ -822,8 +822,8 @@ namespace TP7_SIM.Formularios
                 double demoraCalmante = double.Parse(tbxDemoraCalmante.Text);
 
                 object[][] vectorEstado = new object[2][];
-                vectorEstado[0] = new object[27];
-                vectorEstado[1] = new object[27];
+                vectorEstado[0] = new object[28];
+                vectorEstado[1] = new object[28];
 
                 List<double> resultados = new List<double>();
 
@@ -868,8 +868,8 @@ namespace TP7_SIM.Formularios
 
 
                             //el que suceda primero
-                            proximaLlegadaCons = Convert.ToDouble(vectorEstado[0][4]);
-                            proximaLlegadaEnfe = Convert.ToDouble(vectorEstado[0][7]);
+                            proximaLlegadaCons = Convert.ToDouble(vectorEstado[0][5]);
+                            proximaLlegadaEnfe = Convert.ToDouble(vectorEstado[0][8]);
 
                             List<double> tiemposComparar = new List<double> { proximaLlegadaCons, proximaLlegadaEnfe };
                             double menorTiempo = tiemposComparar.Min();
@@ -887,12 +887,12 @@ namespace TP7_SIM.Formularios
                         }
                         else
                         {
-                            proximaLlegadaCons = Convert.ToDouble(vectorEstado[0][4]);
-                            finConsulta1 = Convert.ToDouble(vectorEstado[0][12]);
-                            finConsulta2 = Convert.ToDouble(vectorEstado[0][13]);
-                            proximaLlegadaEnfe = Convert.ToDouble(vectorEstado[0][7]);
-                            finEnfermeria = Convert.ToDouble(vectorEstado[0][16]);
-                            finCalmante = Convert.ToDouble(vectorEstado[0][17]);
+                            proximaLlegadaCons = Convert.ToDouble(vectorEstado[0][5]);
+                            finConsulta1 = Convert.ToDouble(vectorEstado[0][13]);
+                            finConsulta2 = Convert.ToDouble(vectorEstado[0][14]);
+                            proximaLlegadaEnfe = Convert.ToDouble(vectorEstado[0][8]);
+                            finEnfermeria = Convert.ToDouble(vectorEstado[0][17]);
+                            finCalmante = Convert.ToDouble(vectorEstado[0][18]);
 
 
                             List<double> tiemposComparar = new List<double> { proximaLlegadaCons, finConsulta1, finConsulta2, proximaLlegadaEnfe, finEnfermeria, finCalmante };
@@ -907,16 +907,16 @@ namespace TP7_SIM.Formularios
                                 minuto = finConsulta1;
 
                                 resultados = finConsulta(estados_pacientes, 0, a, b, medico1, medico2, enfermero1, demoraCalmante, minuto, proximaLlegadaCons, acTiempoPerm,
-                                    acPacientesAtendidos, vectorEstado, acTiempoOcupacion, acCalmantes, proximaLlegadaEnfe, proximaLlegadaCons);
+                                    acPacientesAtendidos, vectorEstado, acTiempoOcupacion, acCalmantes, proximaLlegadaEnfe, proximaLlegadaCons, i);
 
                                 acTiempoOcupacion = resultados[1];
-                                vectorEstado[0][24] = acTiempoOcupacion;
+                                vectorEstado[0][25] = acTiempoOcupacion;
 
                                 acPacientesAtendidos = resultados.Last();
-                                vectorEstado[0][25] = acPacientesAtendidos;
+                                vectorEstado[0][26] = acPacientesAtendidos;
 
                                 acTiempoPerm = resultados[0];
-                                vectorEstado[0][27] = acTiempoPerm;
+                                vectorEstado[0][28] = acTiempoPerm;
 
 
                                 if (i >= desde && i <= hasta)
@@ -931,16 +931,16 @@ namespace TP7_SIM.Formularios
                                 minuto = finConsulta2;
 
                                 resultados = finConsulta(estados_pacientes, 0, a, b, medico1, medico2, enfermero1, demoraCalmante, minuto, proximaLlegadaCons, acTiempoPerm,
-                                    acPacientesAtendidos, vectorEstado, acTiempoOcupacion, acCalmantes, proximaLlegadaEnfe, proximaLlegadaCons);
+                                    acPacientesAtendidos, vectorEstado, acTiempoOcupacion, acCalmantes, proximaLlegadaEnfe, proximaLlegadaCons, i);
 
                                 acTiempoOcupacion = resultados[1];
-                                vectorEstado[0][24] = acTiempoOcupacion;
+                                vectorEstado[0][25] = acTiempoOcupacion;
 
                                 acPacientesAtendidos = resultados[2];
-                                vectorEstado[0][25] = acPacientesAtendidos;
+                                vectorEstado[0][26] = acPacientesAtendidos;
 
                                 acTiempoPerm = resultados[0];
-                                vectorEstado[0][27] = acTiempoPerm;
+                                vectorEstado[0][28] = acTiempoPerm;
 
 
                                 if (i >= desde && i <= hasta)
@@ -954,16 +954,16 @@ namespace TP7_SIM.Formularios
                                 minuto = finEnfermeria;
 
                                 resultados = finEnfCurVac(estados_pacientes, medico1, medico2, enfermero1, minuto, demoraCuracion, demoraVacunacion, demoraCalmante, acTiempoPerm,
-                                    acPacientesAtendidos, vectorEstado, acTiempoOcupacion, acCalmantes, proximaLlegadaEnfe, proximaLlegadaCons);
+                                    acPacientesAtendidos, vectorEstado, acTiempoOcupacion, acCalmantes, proximaLlegadaEnfe, proximaLlegadaCons, i);
 
                                 acPacientesAtendidos = resultados[1];
-                                vectorEstado[0][25] = acPacientesAtendidos;
+                                vectorEstado[0][26] = acPacientesAtendidos;
 
                                 acTiempoPerm = resultados[0];
-                                vectorEstado[0][27] = acTiempoPerm;
+                                vectorEstado[0][28] = acTiempoPerm;
 
                                 acTiempoOcupacion = resultados[2];
-                                vectorEstado[0][24] = acTiempoOcupacion;
+                                vectorEstado[0][25] = acTiempoOcupacion;
 
                                 if (i >= desde && i <= hasta)
                                 {
@@ -976,19 +976,19 @@ namespace TP7_SIM.Formularios
                                 minuto = finCalmante;
 
                                 resultados = finEnfCalmante(estados_pacientes, medico1, medico2, enfermero1, minuto, demoraCuracion, demoraVacunacion, demoraCalmante, acTiempoPerm,
-                                    acPacientesAtendidos, vectorEstado, acTiempoOcupacion, acCalmantes, proximaLlegadaEnfe, proximaLlegadaCons);
+                                    acPacientesAtendidos, vectorEstado, acTiempoOcupacion, acCalmantes, proximaLlegadaEnfe, proximaLlegadaCons, i);
 
                                 acPacientesAtendidos = resultados[2];
-                                vectorEstado[0][25] = acPacientesAtendidos;
+                                vectorEstado[0][26] = acPacientesAtendidos;
 
                                 acCalmantes = resultados[0];
-                                vectorEstado[0][26] = acCalmantes;
+                                vectorEstado[0][27] = acCalmantes;
 
                                 acTiempoPerm = resultados[1];
-                                vectorEstado[0][27] = acTiempoPerm;
+                                vectorEstado[0][28] = acTiempoPerm;
 
                                 acTiempoOcupacion = resultados[3];
-                                vectorEstado[0][24] = acTiempoOcupacion;
+                                vectorEstado[0][25] = acTiempoOcupacion;
 
                                 if (i >= desde && i <= hasta)
                                 {
@@ -1001,11 +1001,11 @@ namespace TP7_SIM.Formularios
                                 minuto = proximaLlegadaCons;
 
                                 resultados = llegadaPacienteCons(estados_pacientes, mediaCons, vectorEstado, minuto, medico1, medico2, enfermero1, a, b, acTiempoPerm,
-                                    acTiempoOcupacion, acPacientesAtendidos, acCalmantes, proximaLlegadaEnfe);
+                                    acTiempoOcupacion, acPacientesAtendidos, acCalmantes, proximaLlegadaEnfe, i);
 
                                 acTiempoOcupacion = resultados[0];
 
-                                vectorEstado[0][24] = acTiempoOcupacion;
+                                vectorEstado[0][25] = acTiempoOcupacion;
 
 
                                 if (i >= desde && i <= hasta)
@@ -1023,11 +1023,11 @@ namespace TP7_SIM.Formularios
                                 minuto = proximaLlegadaEnfe;
 
                                 resultados = llegadaPacienteEnf(estados_pacientes, mediaEnf, vectorEstado, minuto, medico1, medico2, enfermero1, demoraCuracion, demoraVacunacion,
-                                    acTiempoPerm, acTiempoOcupacion, acPacientesAtendidos, acCalmantes, proximaLlegadaCons);
+                                    acTiempoPerm, acTiempoOcupacion, acPacientesAtendidos, acCalmantes, proximaLlegadaCons, i);
 
                                 acTiempoOcupacion = resultados[0];
 
-                                vectorEstado[0][24] = acTiempoOcupacion;
+                                vectorEstado[0][25] = acTiempoOcupacion;
 
 
                                 if (i >= desde && i <= hasta)

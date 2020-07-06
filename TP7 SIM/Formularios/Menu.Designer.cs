@@ -65,6 +65,7 @@
             this.lblPromedioPermanencia = new System.Windows.Forms.Label();
             this.lblCantidadCalmantes = new System.Windows.Forms.Label();
             this.lblPacientesAtendidos = new System.Windows.Forms.Label();
+            this.nroIt = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.evento = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.reloj = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.rndTiempoLlegadaCons = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -185,6 +186,7 @@
             this.dgv_datos.BackgroundColor = System.Drawing.SystemColors.ActiveCaption;
             this.dgv_datos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgv_datos.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.nroIt,
             this.evento,
             this.reloj,
             this.rndTiempoLlegadaCons,
@@ -487,6 +489,12 @@
             this.lblPacientesAtendidos.Size = new System.Drawing.Size(0, 14);
             this.lblPacientesAtendidos.TabIndex = 38;
             // 
+            // nroIt
+            // 
+            this.nroIt.HeaderText = "It";
+            this.nroIt.Name = "nroIt";
+            this.nroIt.Width = 37;
+            // 
             // evento
             // 
             this.evento.FillWeight = 211.7013F;
@@ -763,6 +771,7 @@
         private System.Windows.Forms.Label lblPromedioPermanencia;
         private System.Windows.Forms.Label lblCantidadCalmantes;
         private System.Windows.Forms.Label lblPacientesAtendidos;
+        private System.Windows.Forms.DataGridViewTextBoxColumn nroIt;
         private System.Windows.Forms.DataGridViewTextBoxColumn evento;
         private System.Windows.Forms.DataGridViewTextBoxColumn reloj;
         private System.Windows.Forms.DataGridViewTextBoxColumn rndTiempoLlegadaCons;
