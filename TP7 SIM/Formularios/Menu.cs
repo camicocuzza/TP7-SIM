@@ -144,18 +144,16 @@ namespace TP7_SIM.Formularios
 
             if (vector[1][20].ToString() == "Ocupado")
             {
-                acTiempoOcupacion += reloj;
+                acTiempoOcupacion = acTiempoOcupacion + (reloj - Double.Parse(vector[1][1].ToString()));
             }
 
-            result.Add(rndDemoraCons);
-            result.Add(demoraConsulta);
             result.Add(acTiempoOcupacion);
 
             return result;
         }
 
         public List<double> llegadaPacienteEnf(List<Paciente> total_pacientes, double mediaEnf, object[][] vector, double reloj, Medico medico1, Medico medico2,
-            Enfermero enfermero1, double demoraCuracion, double demoraVacunacion, double acTiempoPermanencia, double acTiempoOcupacion, double acPacientesAtendidos, 
+            Enfermero enfermero1, double demoraCuracion, double demoraVacunacion, double acTiempoPermanencia, double acTOcupacion, double acPacientesAtendidos, 
             double acCalmantes, double proxLlegadaCons)
         {
             List<double> result = new List<double>();
@@ -258,7 +256,7 @@ namespace TP7_SIM.Formularios
             total_pacientes.Add(paciente);
             vector[0] = new object[] {evento, reloj, 0, 0, proxLlegadaCons, rndLlegadaEnf, entreLlegadaEnf, proximaLlegadaEnf,rndTipoAtencion, tipoAtencion, 0, 0, medico1.finConsulta,
             medico2.finConsulta, 0, "", enfermero1.finAtencion, medico1.estado, medico2.estado, Medico.colaPacientes.Count(), enfermero1.estado,
-            enfermero1.getTamCola(), acTiempoOcupacion, acPacientesAtendidos, acCalmantes, acTiempoPermanencia};
+            enfermero1.getTamCola(), acTOcupacion, acPacientesAtendidos, acCalmantes, acTiempoPermanencia};
 
 
             foreach (Paciente p in total_pacientes)
@@ -269,16 +267,16 @@ namespace TP7_SIM.Formularios
 
             if (vector[1][20].ToString() == "Ocupado")
             {
-                acTiempoOcupacion += reloj;
+                acTOcupacion = acTOcupacion + (reloj - Double.Parse(vector[1][1].ToString()));
             }
 
-            result.Add(acTiempoOcupacion);
+            result.Add(acTOcupacion);
             return result;
         }
 
         //evento fin de consulta médica
         public List<double> finConsulta(List<Paciente> total_pacientes, double finConsulta, double a, double b, Medico medico1, Medico medico2, Enfermero enfermero1,
-            double demoraCalmante, double reloj, double proximaLlegada, double acTPerm, double acPacientesAtendidos, object[][] vector, double acTiempoOcupacion,
+            double demoraCalmante, double reloj, double proximaLlegada, double acTPerm, double acPacientesAtendidos, object[][] vector, double acTOcupacion,
             double acCalmantes, double proxLlegadaEnf, double proxLlegadaCons)
         {
             List<double> result = new List<double>();
@@ -494,7 +492,7 @@ namespace TP7_SIM.Formularios
             vector[1] = vector[0];
             vector[0] = new object[] {evento, reloj, 0, 0, proxLlegadaCons, 0, 0, proxLlegadaEnf, 0, "", rndDemoraCons, demoraConsulta, medico1.finConsulta,
                 medico2.finConsulta, rndCalmante, calmante, enfermero1.finAtencion, medico1.estado, medico2.estado, Medico.colaPacientes.Count(), enfermero1.estado,
-                 enfermero1.getTamCola(), acTiempoOcupacion, acPacientesAtendidos, acCalmantes, acTPerm };
+                 enfermero1.getTamCola(), acTOcupacion, acPacientesAtendidos, acCalmantes, acTPerm };
 
             foreach (Paciente p in total_pacientes)
             {
@@ -504,12 +502,13 @@ namespace TP7_SIM.Formularios
 
             if (vector[1][20].ToString() == "Ocupado")
             {
-                acTiempoOcupacion += reloj;
+                acTOcupacion = acTOcupacion + (reloj - Double.Parse(vector[1][1].ToString()));
             }
             result.Add(acTPerm);
-            result.Add(acTiempoOcupacion);
+            result.Add(acTOcupacion);
             result.Add(acPacientesAtendidos);
 
+            //arriba del vector????
             return result;
 
         }
@@ -534,6 +533,7 @@ namespace TP7_SIM.Formularios
             {
                 tiempoPermanencia = reloj - pacienteAtendido.hora_llegada;
                 acTPerm = acTPerm + tiempoPermanencia;
+                acPacientesAtendidos++;
 
                 if (Enfermero.colaEnfermeria.Count() > 0)
                 {
@@ -614,7 +614,7 @@ namespace TP7_SIM.Formularios
 
             if (vector[1][20].ToString() == "Ocupado")
             {
-                acTiempoOcupacion += reloj;
+                acTiempoOcupacion = acTiempoOcupacion + (reloj - Double.Parse(vector[1][1].ToString()));
             }
 
             result.Add(acCalmantes);
@@ -818,11 +818,10 @@ namespace TP7_SIM.Formularios
                             {
                                 minuto = finEnfermeria;
 
-                                //public List<double> finConsulta(List<Paciente> total_pacientes, double finConsulta, double a, double b, Medico medico1, Medico medico2, double reloj, double proximaLlegada, double acTiempoPerm, int cantPacientesAtendidos, object[][] vector, double acTiempoOcupacion, double acCalmantes)
                                 resultados = finEnfermeriaMet(estados_pacientes, medico1, medico2, enfermero1, minuto, demoraCuracion, demoraVacunacion, demoraCalmante, acTiempoPerm,
                                     acPacientesAtendidos, vectorEstado, acTiempoOcupacion, acCalmantes, proximaLlegadaEnfe, proximaLlegadaCons);
 
-                                acPacientesAtendidos++;
+                                acPacientesAtendidos = resultados[2];
                                 vectorEstado[0][23] = acPacientesAtendidos;
 
                                 acCalmantes = resultados.First();
@@ -844,11 +843,10 @@ namespace TP7_SIM.Formularios
                             {
                                 minuto = proximaLlegadaCons;
 
-                                //public List<double> finConsulta(List<Paciente> total_pacientes, double finConsulta, double a, double b, Medico medico1, Medico medico2, double reloj, double proximaLlegada, double acTiempoPerm, int cantPacientesAtendidos, object[][] vector, double acTiempoOcupacion, double acCalmantes)
                                 resultados = llegadaPacienteCons(estados_pacientes, mediaCons, vectorEstado, minuto, medico1, medico2, enfermero1, a, b, acTiempoPerm,
                                     acTiempoOcupacion, acPacientesAtendidos, acCalmantes, proximaLlegadaEnfe);
 
-                                acTiempoOcupacion = resultados.Last();
+                                acTiempoOcupacion = resultados[0];
 
                                 vectorEstado[0][22] = acTiempoOcupacion;
 
@@ -867,7 +865,6 @@ namespace TP7_SIM.Formularios
                             {
                                 minuto = proximaLlegadaEnfe;
 
-                                //public List<double> finConsulta(List<Paciente> total_pacientes, double finConsulta, double a, double b, Medico medico1, Medico medico2, double reloj, double proximaLlegada, double acTiempoPerm, int cantPacientesAtendidos, object[][] vector, double acTiempoOcupacion, double acCalmantes)
                                 resultados = llegadaPacienteEnf(estados_pacientes, mediaEnf, vectorEstado, minuto, medico1, medico2, enfermero1, demoraCuracion, demoraVacunacion,
                                     acTiempoPerm, acTiempoOcupacion, acPacientesAtendidos, acCalmantes, proximaLlegadaCons);
 
@@ -891,9 +888,9 @@ namespace TP7_SIM.Formularios
 
                     
                     promedioTiempoPermanencia = acTiempoPerm / acPacientesAtendidos;
-                    lblPromedioPermanencia.Text = promedioTiempoPermanencia.ToString();
+                    lblPromedioPermanencia.Text = promedioTiempoPermanencia.ToString() + " min";
                     promedioTiempoOcupacion = acTiempoOcupacion / minuto;
-                    lblPromedioOcupacion.Text = promedioTiempoOcupacion.ToString();
+                    lblPromedioOcupacion.Text = (promedioTiempoOcupacion*100).ToString() + "%";
                     lblCantidadCalmantes.Text = acCalmantes.ToString();
                     lblPacientesAtendidos.Text = acPacientesAtendidos.ToString();
                     
