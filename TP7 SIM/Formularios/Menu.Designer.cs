@@ -148,7 +148,7 @@
             this.tbxMediaCons.MaxLength = 100;
             this.tbxMediaCons.Name = "tbxMediaCons";
             this.tbxMediaCons.Size = new System.Drawing.Size(31, 20);
-            this.tbxMediaCons.TabIndex = 3;
+            this.tbxMediaCons.TabIndex = 2;
             this.tbxMediaCons.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.tbxMediaCons_KeyPress);
             // 
             // groupBox2
@@ -177,7 +177,7 @@
             this.tbxMediaEnf.MaxLength = 100;
             this.tbxMediaEnf.Name = "tbxMediaEnf";
             this.tbxMediaEnf.Size = new System.Drawing.Size(32, 20);
-            this.tbxMediaEnf.TabIndex = 4;
+            this.tbxMediaEnf.TabIndex = 3;
             this.tbxMediaEnf.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.tbxMediaEnf_KeyPress);
             // 
             // dgv_datos
@@ -226,10 +226,10 @@
             // txtIteraciones
             // 
             this.txtIteraciones.Location = new System.Drawing.Point(78, 41);
-            this.txtIteraciones.MaxLength = 5;
+            this.txtIteraciones.MaxLength = 4;
             this.txtIteraciones.Name = "txtIteraciones";
             this.txtIteraciones.Size = new System.Drawing.Size(45, 20);
-            this.txtIteraciones.TabIndex = 1;
+            this.txtIteraciones.TabIndex = 0;
             this.txtIteraciones.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtIteraciones_KeyPress);
             // 
             // tbxDesde
@@ -237,7 +237,7 @@
             this.tbxDesde.Location = new System.Drawing.Point(78, 83);
             this.tbxDesde.Name = "tbxDesde";
             this.tbxDesde.Size = new System.Drawing.Size(45, 20);
-            this.tbxDesde.TabIndex = 2;
+            this.tbxDesde.TabIndex = 1;
             this.tbxDesde.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.tbxDesde_KeyPress);
             // 
             // groupBox3
@@ -249,7 +249,7 @@
             this.groupBox3.Location = new System.Drawing.Point(371, 26);
             this.groupBox3.Name = "groupBox3";
             this.groupBox3.Size = new System.Drawing.Size(114, 102);
-            this.groupBox3.TabIndex = 23;
+            this.groupBox3.TabIndex = 4;
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "Demora consulta médica";
             // 
@@ -296,7 +296,7 @@
             this.groupBox4.Location = new System.Drawing.Point(592, 26);
             this.groupBox4.Name = "groupBox4";
             this.groupBox4.Size = new System.Drawing.Size(94, 78);
-            this.groupBox4.TabIndex = 24;
+            this.groupBox4.TabIndex = 6;
             this.groupBox4.TabStop = false;
             this.groupBox4.Text = "Demora curación";
             // 
@@ -325,7 +325,7 @@
             this.groupBox5.Location = new System.Drawing.Point(491, 26);
             this.groupBox5.Name = "groupBox5";
             this.groupBox5.Size = new System.Drawing.Size(95, 78);
-            this.groupBox5.TabIndex = 25;
+            this.groupBox5.TabIndex = 5;
             this.groupBox5.TabStop = false;
             this.groupBox5.Text = "Demora vacunación";
             // 
@@ -353,7 +353,7 @@
             this.groupBox6.Location = new System.Drawing.Point(792, 26);
             this.groupBox6.Name = "groupBox6";
             this.groupBox6.Size = new System.Drawing.Size(94, 78);
-            this.groupBox6.TabIndex = 26;
+            this.groupBox6.TabIndex = 6;
             this.groupBox6.TabStop = false;
             this.groupBox6.Text = "Demora spray antidolor";
             // 
@@ -435,7 +435,7 @@
             this.groupBox7.Location = new System.Drawing.Point(692, 26);
             this.groupBox7.Name = "groupBox7";
             this.groupBox7.Size = new System.Drawing.Size(94, 78);
-            this.groupBox7.TabIndex = 34;
+            this.groupBox7.TabIndex = 7;
             this.groupBox7.TabStop = false;
             this.groupBox7.Text = "Demora calmante";
             // 

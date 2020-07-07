@@ -36,13 +36,14 @@ namespace TP7_SIM.Formularios
             {
                 if (valores[i] == 0.0)
                 {
-                    valores[i] = 9999.99;
+                    valores[i] = 999999999.99;
                 }
             }
         }
 
         public List<double> llegadaPacienteCons(List<Paciente> total_pacientes, double mediaCons, object[][] vector, double reloj, Medico medico1, Medico medico2,
-            Enfermero enfermero1, double a, double b, double acTiempoPermanencia, double acTiempoOcupacion, double acPacientesAtendidos, double acCalmantes, double proxLlegadaEnf, int it)
+            Enfermero enfermero1, double a, double b, double acTiempoPermanencia, double acTiempoOcupacion, double acPacientesAtendidos, double acCalmantes, double proxLlegadaEnf,
+            int it, double desde, double hasta, List<Paciente> estados_a_dgv)
         {
             string evento = "Llegada Consulta";
             double rndLlegadaCons = random.NextDouble();
@@ -77,6 +78,7 @@ namespace TP7_SIM.Formularios
                 paciente.numMedico = 1;
                 paciente.estado = "RConsulta M" + paciente.numMedico.ToString();
 
+               
                 foreach (Paciente p in total_pacientes)
                 {
                     if (paciente.id == p.id)
@@ -136,12 +138,17 @@ namespace TP7_SIM.Formularios
             medico2.finConsulta, 0, "", enfermero1.finAtencion, enfermero1.finAtencionCalmante, medico1.estado, medico2.estado, Medico.colaPacientes.Count(), enfermero1.estado,
             enfermero1.getTamColaPrioridad(), enfermero1.getTamColaCalmantes(), acTiempoOcupacion, acPacientesAtendidos, acCalmantes, acTiempoPermanencia };
 
-            foreach (Paciente p in total_pacientes)
+            if (it >= desde && it <= hasta)
+            {
+                estados_a_dgv.Add(paciente);
+            }
+
+            foreach (Paciente p in estados_a_dgv)
             {
                 Array.Resize(ref vector[0], vector[0].Count() + 1);
                 vector[0][vector[0].Count() - 1] = p.estado;
             }
-
+            
             if (vector[1][22].ToString() != "Libre")
             {
                 acTiempoOcupacion = acTiempoOcupacion + (reloj - Double.Parse(vector[1][2].ToString()));
@@ -154,7 +161,7 @@ namespace TP7_SIM.Formularios
 
         public List<double> llegadaPacienteEnf(List<Paciente> total_pacientes, double mediaEnf, object[][] vector, double reloj, Medico medico1, Medico medico2,
             Enfermero enfermero1, double demoraCuracion, double demoraVacunacion, double acTiempoPermanencia, double acTOcupacion, double acPacientesAtendidos,
-            double acCalmantes, double proxLlegadaCons, int it)
+            double acCalmantes, double proxLlegadaCons, int it, double desde, double hasta, List<Paciente> estados_a_dgv)
         {
             List<double> result = new List<double>();
 
@@ -259,6 +266,13 @@ namespace TP7_SIM.Formularios
             {
                 Paciente pacEnEspera = enfermero1.colaEnfCalmantes.First();
                 pacEnEspera.estado = "EReanudación";
+                foreach (Paciente p in total_pacientes)
+                {
+                    if (pacEnEspera.id == p.id)
+                    {
+                        p.estado = pacEnEspera.estado;
+                    }
+                }
                 tiempoRemanencia = enfermero1.finAtencionCalmante - reloj;
                 enfermero1.tiempoRemanente = tiempoRemanencia;
                 enfermero1.finAtencionCalmante = 0;
@@ -307,8 +321,12 @@ namespace TP7_SIM.Formularios
             medico2.finConsulta, 0, "", enfermero1.finAtencion, enfermero1.finAtencionCalmante,medico1.estado, medico2.estado, Medico.colaPacientes.Count(), enfermero1.estado,
             enfermero1.getTamColaPrioridad(), enfermero1.getTamColaCalmantes(), acTOcupacion, acPacientesAtendidos, acCalmantes, acTiempoPermanencia};
 
+            if (it >= desde && it <= hasta)
+            {
+                estados_a_dgv.Add(paciente);
+            }
 
-            foreach (Paciente p in total_pacientes)
+            foreach (Paciente p in estados_a_dgv)
             {
                 Array.Resize(ref vector[0], vector[0].Count() + 1);
                 vector[0][vector[0].Count() - 1] = p.estado;
@@ -326,7 +344,7 @@ namespace TP7_SIM.Formularios
         //evento fin de consulta médica
         public List<double> finConsulta(List<Paciente> total_pacientes, double finConsulta, double a, double b, Medico medico1, Medico medico2, Enfermero enfermero1,
             double demoraCalmante, double reloj, double proximaLlegada, double acTPerm, double acPacientesAtendidos, object[][] vector, double acTOcupacion,
-            double acCalmantes, double proxLlegadaEnf, double proxLlegadaCons, int it)
+            double acCalmantes, double proxLlegadaEnf, double proxLlegadaCons, int it, double desde, double hasta, List<Paciente> estados_a_dgv)
         {
             List<double> result = new List<double>();
 
@@ -374,7 +392,7 @@ namespace TP7_SIM.Formularios
                         enfermero1.finAtencionCalmante = demoraEnfermeria;
                         enfermero1.finAtencion = 0;
 
-                        pacAtendido.estado = "Rcalmante";        //recibiendo calmante
+                        pacAtendido.estado = "RCalmante";        //recibiendo calmante
                         foreach (Paciente p in total_pacientes)
                         {
                             if (pacAtendido.id == p.id)
@@ -473,7 +491,7 @@ namespace TP7_SIM.Formularios
                         enfermero1.finAtencionCalmante = demoraEnfermeria;
                         enfermero1.finAtencion = 0;
 
-                        pacAtendido.estado = "Rcalmante";        //recibiendo calmante
+                        pacAtendido.estado = "RCalmante";        //recibiendo calmante
                         foreach (Paciente p in total_pacientes)
                         {
                             if (pacAtendido.id == p.id)
@@ -543,7 +561,8 @@ namespace TP7_SIM.Formularios
                 medico2.finConsulta, rndCalmante, calmante, enfermero1.finAtencion, enfermero1.finAtencionCalmante, medico1.estado, medico2.estado, Medico.colaPacientes.Count(), enfermero1.estado,
                  enfermero1.getTamColaPrioridad(), enfermero1.getTamColaCalmantes(), acTOcupacion, acPacientesAtendidos, acCalmantes, acTPerm };
 
-            foreach (Paciente p in total_pacientes)
+          
+            foreach (Paciente p in estados_a_dgv)
             {
                 Array.Resize(ref vector[0], vector[0].Count() + 1);
                 vector[0][vector[0].Count() - 1] = p.estado;
@@ -564,7 +583,7 @@ namespace TP7_SIM.Formularios
         //evento fin de enfermería curación o vacunación
         public List<double> finEnfCurVac(List<Paciente> total_pacientes, Medico medico1, Medico medico2, Enfermero enfermero1, double reloj,
             double demoraCuracion, double demoraVacunacion, double demoraCalmante, double acTPerm, double acPacientesAtendidos, object[][] vector,
-            double acTiempoOcupacion, double acCalmantes, double proxLlegadaEnf, double proxLlegadaCons, int it)
+            double acTiempoOcupacion, double acCalmantes, double proxLlegadaEnf, double proxLlegadaCons, int it, double desde, double hasta, List<Paciente> estados_a_dgv)
         {
             List<double> result = new List<double>();
 
@@ -580,83 +599,93 @@ namespace TP7_SIM.Formularios
                 acTPerm = acTPerm + tiempoPermanencia;
                 acPacientesAtendidos++;
 
-                //ver si quedan pacientes para cur/vac
-                if (enfermero1.getTamColaPrioridad() != 0)
+            //ver si quedan pacientes para cur/vac
+            if (enfermero1.getTamColaPrioridad() != 0)
+            {
+                Paciente siguiente = Enfermero.colaEnfermeria.First();
+
+
+                if (siguiente.tipoAtencion == "Curación")
                 {
-                    Paciente siguiente = Enfermero.colaEnfermeria.First();
-                    
-
-                    if (siguiente.tipoAtencion == "Curación")
+                    demoraEnfermeria = demoraCuracion;
+                    siguiente.estado = "SCurado";
+                    enfermero1.estado = "ACuración";
+                    foreach (Paciente p in total_pacientes)
                     {
-                        demoraEnfermeria = demoraCuracion;
-                        siguiente.estado = "SCurado";
-                        enfermero1.estado = "ACuración";
-                        foreach (Paciente p in total_pacientes)
+                        if (siguiente.id == p.id)
                         {
-                            if (siguiente.id == p.id)
-                            {
-                                p.estado = siguiente.estado;
-                            }
-                        }
-
-                    }
-
-                    else if (siguiente.tipoAtencion == "Vacunación")
-                    {
-                        demoraEnfermeria = demoraVacunacion + 1.55;
-                        siguiente.estado = "SVacunado";
-                        enfermero1.estado = "AVacuna";
-                        foreach (Paciente p in total_pacientes)
-                        {
-                            if (siguiente.id == p.id)
-                            {
-                                p.estado = siguiente.estado;
-                            }
+                            p.estado = siguiente.estado;
                         }
                     }
-                    //si ninguna, queda en 0
-                    enfermero1.finAtencion = demoraEnfermeria + reloj;
+
                 }
-                //ver si hay calmante remanente
-                else if (enfermero1.tiempoRemanente != 0)
-                {
-                    enfermero1.finAtencion = 0;
-                    Paciente pacReanudar = enfermero1.colaEnfCalmantes.First();
-                    pacReanudar.estado = "RCalmante";
-                    enfermero1.estado = "ACalmante";
-                    enfermero1.finAtencionCalmante = enfermero1.tiempoRemanente + reloj;
-                    enfermero1.tiempoRemanente = 0;
-                 }
-         
-                //hay cola en calmamtes
-                else if (enfermero1.colaEnfCalmantes.Count() > 0)
-                {
-                    enfermero1.finAtencion = 0;
-                    Paciente siguiente = enfermero1.colaEnfCalmantes.First();
 
-                        demoraEnfermeria = demoraCalmante + 1.55;
-                        siguiente.estado = "Rcalmante";
-                        enfermero1.estado = "ACalmante";
-                        foreach (Paciente p in total_pacientes)
+                else if (siguiente.tipoAtencion == "Vacunación")
+                {
+                    demoraEnfermeria = demoraVacunacion + 1.55;
+                    siguiente.estado = "SVacunado";
+                    enfermero1.estado = "AVacuna";
+                    foreach (Paciente p in total_pacientes)
+                    {
+                        if (siguiente.id == p.id)
                         {
-                            if (siguiente.id == p.id)
-                            {
-                                p.estado = siguiente.estado;
-                            }
+                            p.estado = siguiente.estado;
                         }
-                    enfermero1.finAtencionCalmante = demoraEnfermeria + reloj;
-
                     }
+                }
+                //si ninguna, queda en 0
+                enfermero1.finAtencion = demoraEnfermeria + reloj;
+            }
+
+            //ver si hay calmante remanente
+            else if (enfermero1.tiempoRemanente != 0)
+            {
+                enfermero1.finAtencion = 0;
+                Paciente pacReanudar = enfermero1.colaEnfCalmantes.First();
+                pacReanudar.estado = "RCalmante";
+                foreach (Paciente p in total_pacientes)
+                {
+                    if (pacReanudar.id == p.id)
+                    {
+                        p.estado = pacReanudar.estado;
+                    }
+                }
+                  
+                enfermero1.estado = "ACalmante";
+                enfermero1.finAtencionCalmante = enfermero1.tiempoRemanente + reloj;
+                enfermero1.tiempoRemanente = 0;
                 
+            }
 
-                //No hay cola
-                else
+            //hay cola en calmamtes
+            else if (enfermero1.colaEnfCalmantes.Count() > 0)
+            {
+                enfermero1.finAtencion = 0;
+                Paciente siguiente = enfermero1.colaEnfCalmantes.First();
+
+                demoraEnfermeria = demoraCalmante + 1.55;
+                siguiente.estado = "Rcalmante";
+                enfermero1.estado = "ACalmante";
+                foreach (Paciente p in total_pacientes)
                 {
-                    enfermero1.estado = "Libre";
-                    enfermero1.finAtencion = 0;
-                    enfermero1.finAtencionCalmante = 0;
-
+                    if (siguiente.id == p.id)
+                    {
+                        p.estado = siguiente.estado;
+                    }
                 }
+                enfermero1.finAtencionCalmante = demoraEnfermeria + reloj;
+
+            }
+
+
+            //No hay cola
+            else
+            {
+                enfermero1.estado = "Libre";
+                enfermero1.finAtencion = 0;
+                enfermero1.finAtencionCalmante = 0;
+
+            }
 
                 pacienteAtendido.estado = "Finalizado";
                 foreach (Paciente p in total_pacientes)
@@ -672,8 +701,8 @@ namespace TP7_SIM.Formularios
                 medico2.finConsulta, 0, "", enfermero1.finAtencion, enfermero1.finAtencionCalmante, medico1.estado, medico2.estado, Medico.colaPacientes.Count(), enfermero1.estado,
                 enfermero1.getTamColaPrioridad(), enfermero1.getTamColaCalmantes(), acTiempoOcupacion, acPacientesAtendidos, acCalmantes, acTPerm};
 
-
-            foreach (Paciente p in total_pacientes)
+           
+            foreach (Paciente p in estados_a_dgv)
             {
                 Array.Resize(ref vector[0], vector[0].Count() + 1);
                 vector[0][vector[0].Count() - 1] = p.estado;
@@ -695,7 +724,7 @@ namespace TP7_SIM.Formularios
         //evento fin de enfermería calmante
         public List<double> finEnfCalmante(List<Paciente> total_pacientes, Medico medico1, Medico medico2, Enfermero enfermero1, double reloj,
             double demoraCuracion, double demoraVacunacion, double demoraCalmante, double acTPerm, double acPacientesAtendidos, object[][] vector,
-            double acTiempoOcupacion, double acCalmantes, double proxLlegadaEnf, double proxLlegadaCons, int it)
+            double acTiempoOcupacion, double acCalmantes, double proxLlegadaEnf, double proxLlegadaCons, int it, double desde, double hasta, List<Paciente> estados_a_dgv)
         {
             List<double> result = new List<double>();
 
@@ -718,7 +747,7 @@ namespace TP7_SIM.Formularios
                 Paciente siguiente = enfermero1.colaEnfCalmantes.First();
 
                 demoraEnfermeria = demoraCalmante + 1.55;
-                siguiente.estado = "Rcalmante";
+                siguiente.estado = "RCalmante";
                 foreach (Paciente p in total_pacientes)
                 {
                     if (siguiente.id == p.id)
@@ -754,7 +783,7 @@ namespace TP7_SIM.Formularios
                 enfermero1.getTamColaPrioridad(), enfermero1.getTamColaCalmantes(), acTiempoOcupacion, acPacientesAtendidos, acCalmantes, acTPerm};
 
 
-            foreach (Paciente p in total_pacientes)
+            foreach (Paciente p in estados_a_dgv)
             {
                 Array.Resize(ref vector[0], vector[0].Count() + 1);
                 vector[0][vector[0].Count() - 1] = p.estado;
@@ -850,6 +879,7 @@ namespace TP7_SIM.Formularios
 
                     //objetos temporales
                     List<Paciente> estados_pacientes = new List<Paciente>();
+                    List<Paciente> estados_a_dgv = new List<Paciente>();
 
                     for (int i = 0; i <= iteracion; i++)
                     {
@@ -906,8 +936,8 @@ namespace TP7_SIM.Formularios
                             {
                                 minuto = finConsulta1;
 
-                                resultados = finConsulta(estados_pacientes, 0, a, b, medico1, medico2, enfermero1, demoraCalmante, minuto, proximaLlegadaCons, acTiempoPerm,
-                                    acPacientesAtendidos, vectorEstado, acTiempoOcupacion, acCalmantes, proximaLlegadaEnfe, proximaLlegadaCons, i);
+                                resultados = finConsulta(estados_pacientes, finConsulta1, a, b, medico1, medico2, enfermero1, demoraCalmante, minuto, proximaLlegadaCons, acTiempoPerm,
+                                    acPacientesAtendidos, vectorEstado, acTiempoOcupacion, acCalmantes, proximaLlegadaEnfe, proximaLlegadaCons, i, desde, hasta, estados_a_dgv);
 
                                 acTiempoOcupacion = resultados[1];
                                 vectorEstado[0][25] = acTiempoOcupacion;
@@ -930,8 +960,8 @@ namespace TP7_SIM.Formularios
                             {
                                 minuto = finConsulta2;
 
-                                resultados = finConsulta(estados_pacientes, 0, a, b, medico1, medico2, enfermero1, demoraCalmante, minuto, proximaLlegadaCons, acTiempoPerm,
-                                    acPacientesAtendidos, vectorEstado, acTiempoOcupacion, acCalmantes, proximaLlegadaEnfe, proximaLlegadaCons, i);
+                                resultados = finConsulta(estados_pacientes, finConsulta2, a, b, medico1, medico2, enfermero1, demoraCalmante, minuto, proximaLlegadaCons, acTiempoPerm,
+                                    acPacientesAtendidos, vectorEstado, acTiempoOcupacion, acCalmantes, proximaLlegadaEnfe, proximaLlegadaCons, i, desde, hasta, estados_a_dgv);
 
                                 acTiempoOcupacion = resultados[1];
                                 vectorEstado[0][25] = acTiempoOcupacion;
@@ -954,7 +984,7 @@ namespace TP7_SIM.Formularios
                                 minuto = finEnfermeria;
 
                                 resultados = finEnfCurVac(estados_pacientes, medico1, medico2, enfermero1, minuto, demoraCuracion, demoraVacunacion, demoraCalmante, acTiempoPerm,
-                                    acPacientesAtendidos, vectorEstado, acTiempoOcupacion, acCalmantes, proximaLlegadaEnfe, proximaLlegadaCons, i);
+                                    acPacientesAtendidos, vectorEstado, acTiempoOcupacion, acCalmantes, proximaLlegadaEnfe, proximaLlegadaCons, i, desde, hasta, estados_a_dgv);
 
                                 acPacientesAtendidos = resultados[1];
                                 vectorEstado[0][26] = acPacientesAtendidos;
@@ -976,7 +1006,7 @@ namespace TP7_SIM.Formularios
                                 minuto = finCalmante;
 
                                 resultados = finEnfCalmante(estados_pacientes, medico1, medico2, enfermero1, minuto, demoraCuracion, demoraVacunacion, demoraCalmante, acTiempoPerm,
-                                    acPacientesAtendidos, vectorEstado, acTiempoOcupacion, acCalmantes, proximaLlegadaEnfe, proximaLlegadaCons, i);
+                                    acPacientesAtendidos, vectorEstado, acTiempoOcupacion, acCalmantes, proximaLlegadaEnfe, proximaLlegadaCons, i, desde, hasta, estados_a_dgv);
 
                                 acPacientesAtendidos = resultados[2];
                                 vectorEstado[0][26] = acPacientesAtendidos;
@@ -1001,19 +1031,20 @@ namespace TP7_SIM.Formularios
                                 minuto = proximaLlegadaCons;
 
                                 resultados = llegadaPacienteCons(estados_pacientes, mediaCons, vectorEstado, minuto, medico1, medico2, enfermero1, a, b, acTiempoPerm,
-                                    acTiempoOcupacion, acPacientesAtendidos, acCalmantes, proximaLlegadaEnfe, i);
+                                    acTiempoOcupacion, acPacientesAtendidos, acCalmantes, proximaLlegadaEnfe, i, desde, hasta, estados_a_dgv);
 
                                 acTiempoOcupacion = resultados[0];
 
                                 vectorEstado[0][25] = acTiempoOcupacion;
 
-
+                                
                                 if (i >= desde && i <= hasta)
                                 {
                                     DataGridViewColumn pac_estado = new DataGridViewColumn();
                                     pac_estado.HeaderText = "Estado Paciente" + estados_pacientes.Count().ToString();
                                     pac_estado.CellTemplate = new DataGridViewTextBoxCell();
                                     dgv_datos.Columns.Add(pac_estado);
+
                                     dgv_datos.Rows.Add(vectorEstado[0]);
                                 }
                             }
@@ -1023,11 +1054,13 @@ namespace TP7_SIM.Formularios
                                 minuto = proximaLlegadaEnfe;
 
                                 resultados = llegadaPacienteEnf(estados_pacientes, mediaEnf, vectorEstado, minuto, medico1, medico2, enfermero1, demoraCuracion, demoraVacunacion,
-                                    acTiempoPerm, acTiempoOcupacion, acPacientesAtendidos, acCalmantes, proximaLlegadaCons, i);
+                                    acTiempoPerm, acTiempoOcupacion, acPacientesAtendidos, acCalmantes, proximaLlegadaCons, i, desde, hasta, estados_a_dgv);
 
                                 acTiempoOcupacion = resultados[0];
 
                                 vectorEstado[0][25] = acTiempoOcupacion;
+
+                                
 
 
                                 if (i >= desde && i <= hasta)
@@ -1036,6 +1069,7 @@ namespace TP7_SIM.Formularios
                                     pac_estado.HeaderText = "Estado Paciente" + estados_pacientes.Count().ToString();
                                     pac_estado.CellTemplate = new DataGridViewTextBoxCell();
                                     dgv_datos.Columns.Add(pac_estado);
+
                                     dgv_datos.Rows.Add(vectorEstado[0]);
                                 }
                             }
@@ -1110,6 +1144,9 @@ namespace TP7_SIM.Formularios
             lblPromedioPermanencia.Text = "";
 
             dgv_datos.Rows.Clear();
+            int col = dgv_datos.DisplayedColumnCount(true);
+            
+
 
         }
 
