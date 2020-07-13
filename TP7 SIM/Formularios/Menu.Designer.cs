@@ -37,34 +37,6 @@
             this.label2 = new System.Windows.Forms.Label();
             this.tbxMediaEnf = new System.Windows.Forms.TextBox();
             this.dgv_datos = new System.Windows.Forms.DataGridView();
-            this.txtIteraciones = new System.Windows.Forms.TextBox();
-            this.tbxDesde = new System.Windows.Forms.TextBox();
-            this.groupBox3 = new System.Windows.Forms.GroupBox();
-            this.tbxHastaCM = new System.Windows.Forms.TextBox();
-            this.tbxDesdeCM = new System.Windows.Forms.TextBox();
-            this.label7 = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
-            this.groupBox4 = new System.Windows.Forms.GroupBox();
-            this.label4 = new System.Windows.Forms.Label();
-            this.tbxDemoraCuracion = new System.Windows.Forms.TextBox();
-            this.groupBox5 = new System.Windows.Forms.GroupBox();
-            this.label5 = new System.Windows.Forms.Label();
-            this.tbxDemoraVacuna = new System.Windows.Forms.TextBox();
-            this.groupBox6 = new System.Windows.Forms.GroupBox();
-            this.label6 = new System.Windows.Forms.Label();
-            this.btnLimpiar = new System.Windows.Forms.Button();
-            this.btnGenerar = new System.Windows.Forms.Button();
-            this.lblOE = new System.Windows.Forms.Label();
-            this.lblPP = new System.Windows.Forms.Label();
-            this.lblCC = new System.Windows.Forms.Label();
-            this.lblPA = new System.Windows.Forms.Label();
-            this.groupBox7 = new System.Windows.Forms.GroupBox();
-            this.label8 = new System.Windows.Forms.Label();
-            this.tbxDemoraCalmante = new System.Windows.Forms.TextBox();
-            this.lblPromedioOcupacion = new System.Windows.Forms.Label();
-            this.lblPromedioPermanencia = new System.Windows.Forms.Label();
-            this.lblCantidadCalmantes = new System.Windows.Forms.Label();
-            this.lblPacientesAtendidos = new System.Windows.Forms.Label();
             this.nroIt = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.evento = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.reloj = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -94,6 +66,35 @@
             this.cantidadTotalPacientes = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.cantidadCalmantes = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.acTiempoPermanencia = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.txtIteraciones = new System.Windows.Forms.TextBox();
+            this.tbxDesde = new System.Windows.Forms.TextBox();
+            this.groupBox3 = new System.Windows.Forms.GroupBox();
+            this.tbxHastaCM = new System.Windows.Forms.TextBox();
+            this.tbxDesdeCM = new System.Windows.Forms.TextBox();
+            this.label7 = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
+            this.groupBox4 = new System.Windows.Forms.GroupBox();
+            this.label4 = new System.Windows.Forms.Label();
+            this.tbxDemoraCuracion = new System.Windows.Forms.TextBox();
+            this.groupBox5 = new System.Windows.Forms.GroupBox();
+            this.label5 = new System.Windows.Forms.Label();
+            this.tbxDemoraVacuna = new System.Windows.Forms.TextBox();
+            this.groupBox6 = new System.Windows.Forms.GroupBox();
+            this.label6 = new System.Windows.Forms.Label();
+            this.btnLimpiar = new System.Windows.Forms.Button();
+            this.btnGenerar = new System.Windows.Forms.Button();
+            this.lblOE = new System.Windows.Forms.Label();
+            this.lblPP = new System.Windows.Forms.Label();
+            this.lblCC = new System.Windows.Forms.Label();
+            this.lblPA = new System.Windows.Forms.Label();
+            this.groupBox7 = new System.Windows.Forms.GroupBox();
+            this.label8 = new System.Windows.Forms.Label();
+            this.tbxDemoraCalmante = new System.Windows.Forms.TextBox();
+            this.lblPromedioOcupacion = new System.Windows.Forms.Label();
+            this.lblPromedioPermanencia = new System.Windows.Forms.Label();
+            this.lblCantidadCalmantes = new System.Windows.Forms.Label();
+            this.lblPacientesAtendidos = new System.Windows.Forms.Label();
+            this.btnExportar = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgv_datos)).BeginInit();
@@ -223,272 +224,6 @@
             this.dgv_datos.Size = new System.Drawing.Size(1252, 433);
             this.dgv_datos.TabIndex = 20;
             // 
-            // txtIteraciones
-            // 
-            this.txtIteraciones.Location = new System.Drawing.Point(78, 41);
-            this.txtIteraciones.MaxLength = 4;
-            this.txtIteraciones.Name = "txtIteraciones";
-            this.txtIteraciones.Size = new System.Drawing.Size(45, 20);
-            this.txtIteraciones.TabIndex = 0;
-            this.txtIteraciones.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtIteraciones_KeyPress);
-            // 
-            // tbxDesde
-            // 
-            this.tbxDesde.Location = new System.Drawing.Point(78, 83);
-            this.tbxDesde.Name = "tbxDesde";
-            this.tbxDesde.Size = new System.Drawing.Size(45, 20);
-            this.tbxDesde.TabIndex = 1;
-            this.tbxDesde.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.tbxDesde_KeyPress);
-            // 
-            // groupBox3
-            // 
-            this.groupBox3.Controls.Add(this.tbxHastaCM);
-            this.groupBox3.Controls.Add(this.tbxDesdeCM);
-            this.groupBox3.Controls.Add(this.label7);
-            this.groupBox3.Controls.Add(this.label3);
-            this.groupBox3.Location = new System.Drawing.Point(371, 26);
-            this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Size = new System.Drawing.Size(114, 102);
-            this.groupBox3.TabIndex = 4;
-            this.groupBox3.TabStop = false;
-            this.groupBox3.Text = "Demora consulta médica";
-            // 
-            // tbxHastaCM
-            // 
-            this.tbxHastaCM.Location = new System.Drawing.Point(57, 71);
-            this.tbxHastaCM.MaxLength = 100;
-            this.tbxHastaCM.Name = "tbxHastaCM";
-            this.tbxHastaCM.Size = new System.Drawing.Size(33, 20);
-            this.tbxHastaCM.TabIndex = 6;
-            this.tbxHastaCM.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.tbxHastaCM_KeyPress);
-            // 
-            // tbxDesdeCM
-            // 
-            this.tbxDesdeCM.Location = new System.Drawing.Point(57, 37);
-            this.tbxDesdeCM.MaxLength = 100;
-            this.tbxDesdeCM.Name = "tbxDesdeCM";
-            this.tbxDesdeCM.Size = new System.Drawing.Size(33, 20);
-            this.tbxDesdeCM.TabIndex = 5;
-            this.tbxDesdeCM.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.tbxDesdeCM_KeyPress);
-            // 
-            // label7
-            // 
-            this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(16, 74);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(35, 14);
-            this.label7.TabIndex = 5;
-            this.label7.Text = "Hasta";
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(16, 43);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(38, 14);
-            this.label3.TabIndex = 4;
-            this.label3.Text = "Desde";
-            // 
-            // groupBox4
-            // 
-            this.groupBox4.Controls.Add(this.label4);
-            this.groupBox4.Controls.Add(this.tbxDemoraCuracion);
-            this.groupBox4.Location = new System.Drawing.Point(592, 26);
-            this.groupBox4.Name = "groupBox4";
-            this.groupBox4.Size = new System.Drawing.Size(94, 78);
-            this.groupBox4.TabIndex = 6;
-            this.groupBox4.TabStop = false;
-            this.groupBox4.Text = "Demora curación";
-            // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(16, 43);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(32, 14);
-            this.label4.TabIndex = 4;
-            this.label4.Text = "Cte =";
-            // 
-            // tbxDemoraCuracion
-            // 
-            this.tbxDemoraCuracion.Location = new System.Drawing.Point(54, 40);
-            this.tbxDemoraCuracion.MaxLength = 100;
-            this.tbxDemoraCuracion.Name = "tbxDemoraCuracion";
-            this.tbxDemoraCuracion.Size = new System.Drawing.Size(34, 20);
-            this.tbxDemoraCuracion.TabIndex = 8;
-            this.tbxDemoraCuracion.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.tbxDemoraCuracion_KeyPress);
-            // 
-            // groupBox5
-            // 
-            this.groupBox5.Controls.Add(this.label5);
-            this.groupBox5.Controls.Add(this.tbxDemoraVacuna);
-            this.groupBox5.Location = new System.Drawing.Point(491, 26);
-            this.groupBox5.Name = "groupBox5";
-            this.groupBox5.Size = new System.Drawing.Size(95, 78);
-            this.groupBox5.TabIndex = 5;
-            this.groupBox5.TabStop = false;
-            this.groupBox5.Text = "Demora vacunación";
-            // 
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(16, 43);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(32, 14);
-            this.label5.TabIndex = 4;
-            this.label5.Text = "Cte =";
-            // 
-            // tbxDemoraVacuna
-            // 
-            this.tbxDemoraVacuna.Location = new System.Drawing.Point(54, 40);
-            this.tbxDemoraVacuna.MaxLength = 100;
-            this.tbxDemoraVacuna.Name = "tbxDemoraVacuna";
-            this.tbxDemoraVacuna.Size = new System.Drawing.Size(33, 20);
-            this.tbxDemoraVacuna.TabIndex = 7;
-            this.tbxDemoraVacuna.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.tbxDemoraVacuna_KeyPress);
-            // 
-            // groupBox6
-            // 
-            this.groupBox6.Controls.Add(this.label6);
-            this.groupBox6.Location = new System.Drawing.Point(792, 26);
-            this.groupBox6.Name = "groupBox6";
-            this.groupBox6.Size = new System.Drawing.Size(94, 78);
-            this.groupBox6.TabIndex = 6;
-            this.groupBox6.TabStop = false;
-            this.groupBox6.Text = "Demora spray antidolor";
-            // 
-            // label6
-            // 
-            this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(16, 43);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(58, 14);
-            this.label6.TabIndex = 4;
-            this.label6.Text = "Cte = 1.55\'";
-            // 
-            // btnLimpiar
-            // 
-            this.btnLimpiar.Location = new System.Drawing.Point(915, 77);
-            this.btnLimpiar.Margin = new System.Windows.Forms.Padding(2);
-            this.btnLimpiar.Name = "btnLimpiar";
-            this.btnLimpiar.Size = new System.Drawing.Size(70, 27);
-            this.btnLimpiar.TabIndex = 11;
-            this.btnLimpiar.Text = "Limpiar";
-            this.btnLimpiar.UseVisualStyleBackColor = true;
-            this.btnLimpiar.Click += new System.EventHandler(this.btnLimpiar_Click_1);
-            // 
-            // btnGenerar
-            // 
-            this.btnGenerar.Location = new System.Drawing.Point(915, 47);
-            this.btnGenerar.Margin = new System.Windows.Forms.Padding(2);
-            this.btnGenerar.Name = "btnGenerar";
-            this.btnGenerar.Size = new System.Drawing.Size(70, 26);
-            this.btnGenerar.TabIndex = 10;
-            this.btnGenerar.Text = "Generar";
-            this.btnGenerar.UseVisualStyleBackColor = true;
-            this.btnGenerar.Click += new System.EventHandler(this.btnGenerar_Click);
-            // 
-            // lblOE
-            // 
-            this.lblOE.AutoSize = true;
-            this.lblOE.Location = new System.Drawing.Point(381, 592);
-            this.lblOE.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.lblOE.Name = "lblOE";
-            this.lblOE.Size = new System.Drawing.Size(194, 14);
-            this.lblOE.TabIndex = 29;
-            this.lblOE.Text = "Promedio tiempo ocupación enfermero:";
-            // 
-            // lblPP
-            // 
-            this.lblPP.AutoSize = true;
-            this.lblPP.Location = new System.Drawing.Point(381, 625);
-            this.lblPP.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.lblPP.Name = "lblPP";
-            this.lblPP.Size = new System.Drawing.Size(206, 14);
-            this.lblPP.TabIndex = 30;
-            this.lblPP.Text = "Tiempo promedio permanencia pacientes:";
-            // 
-            // lblCC
-            // 
-            this.lblCC.AutoSize = true;
-            this.lblCC.Location = new System.Drawing.Point(15, 625);
-            this.lblCC.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.lblCC.Name = "lblCC";
-            this.lblCC.Size = new System.Drawing.Size(168, 14);
-            this.lblCC.TabIndex = 32;
-            this.lblCC.Text = "Cantidad de calmantes aplicados:";
-            // 
-            // lblPA
-            // 
-            this.lblPA.AutoSize = true;
-            this.lblPA.Location = new System.Drawing.Point(15, 592);
-            this.lblPA.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.lblPA.Name = "lblPA";
-            this.lblPA.Size = new System.Drawing.Size(190, 14);
-            this.lblPA.TabIndex = 33;
-            this.lblPA.Text = "Cantidad total de pacientes atendidos:";
-            // 
-            // groupBox7
-            // 
-            this.groupBox7.Controls.Add(this.label8);
-            this.groupBox7.Controls.Add(this.tbxDemoraCalmante);
-            this.groupBox7.Location = new System.Drawing.Point(692, 26);
-            this.groupBox7.Name = "groupBox7";
-            this.groupBox7.Size = new System.Drawing.Size(94, 78);
-            this.groupBox7.TabIndex = 7;
-            this.groupBox7.TabStop = false;
-            this.groupBox7.Text = "Demora calmante";
-            // 
-            // label8
-            // 
-            this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(16, 43);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(32, 14);
-            this.label8.TabIndex = 4;
-            this.label8.Text = "Cte =";
-            // 
-            // tbxDemoraCalmante
-            // 
-            this.tbxDemoraCalmante.Location = new System.Drawing.Point(54, 40);
-            this.tbxDemoraCalmante.MaxLength = 100;
-            this.tbxDemoraCalmante.Name = "tbxDemoraCalmante";
-            this.tbxDemoraCalmante.Size = new System.Drawing.Size(34, 20);
-            this.tbxDemoraCalmante.TabIndex = 9;
-            this.tbxDemoraCalmante.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.tbxDemoraCalmante_KeyPress);
-            // 
-            // lblPromedioOcupacion
-            // 
-            this.lblPromedioOcupacion.AutoSize = true;
-            this.lblPromedioOcupacion.Location = new System.Drawing.Point(587, 592);
-            this.lblPromedioOcupacion.Name = "lblPromedioOcupacion";
-            this.lblPromedioOcupacion.Size = new System.Drawing.Size(0, 14);
-            this.lblPromedioOcupacion.TabIndex = 35;
-            // 
-            // lblPromedioPermanencia
-            // 
-            this.lblPromedioPermanencia.AutoSize = true;
-            this.lblPromedioPermanencia.Location = new System.Drawing.Point(587, 625);
-            this.lblPromedioPermanencia.Name = "lblPromedioPermanencia";
-            this.lblPromedioPermanencia.Size = new System.Drawing.Size(0, 14);
-            this.lblPromedioPermanencia.TabIndex = 36;
-            // 
-            // lblCantidadCalmantes
-            // 
-            this.lblCantidadCalmantes.AutoSize = true;
-            this.lblCantidadCalmantes.Location = new System.Drawing.Point(208, 625);
-            this.lblCantidadCalmantes.Name = "lblCantidadCalmantes";
-            this.lblCantidadCalmantes.Size = new System.Drawing.Size(0, 14);
-            this.lblCantidadCalmantes.TabIndex = 37;
-            // 
-            // lblPacientesAtendidos
-            // 
-            this.lblPacientesAtendidos.AutoSize = true;
-            this.lblPacientesAtendidos.Location = new System.Drawing.Point(208, 592);
-            this.lblPacientesAtendidos.Name = "lblPacientesAtendidos";
-            this.lblPacientesAtendidos.Size = new System.Drawing.Size(0, 14);
-            this.lblPacientesAtendidos.TabIndex = 38;
-            // 
             // nroIt
             // 
             this.nroIt.HeaderText = "It";
@@ -509,7 +244,7 @@
             this.reloj.HeaderText = "Reloj (min)";
             this.reloj.MinimumWidth = 6;
             this.reloj.Name = "reloj";
-            this.reloj.Width = 82;
+            this.reloj.Width = 76;
             // 
             // rndTiempoLlegadaCons
             // 
@@ -681,12 +416,289 @@
             this.acTiempoPermanencia.Name = "acTiempoPermanencia";
             this.acTiempoPermanencia.Width = 133;
             // 
+            // txtIteraciones
+            // 
+            this.txtIteraciones.Location = new System.Drawing.Point(78, 41);
+            this.txtIteraciones.MaxLength = 4;
+            this.txtIteraciones.Name = "txtIteraciones";
+            this.txtIteraciones.Size = new System.Drawing.Size(45, 20);
+            this.txtIteraciones.TabIndex = 0;
+            this.txtIteraciones.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtIteraciones_KeyPress);
+            // 
+            // tbxDesde
+            // 
+            this.tbxDesde.Location = new System.Drawing.Point(78, 83);
+            this.tbxDesde.Name = "tbxDesde";
+            this.tbxDesde.Size = new System.Drawing.Size(45, 20);
+            this.tbxDesde.TabIndex = 1;
+            this.tbxDesde.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.tbxDesde_KeyPress);
+            // 
+            // groupBox3
+            // 
+            this.groupBox3.Controls.Add(this.tbxHastaCM);
+            this.groupBox3.Controls.Add(this.tbxDesdeCM);
+            this.groupBox3.Controls.Add(this.label7);
+            this.groupBox3.Controls.Add(this.label3);
+            this.groupBox3.Location = new System.Drawing.Point(371, 26);
+            this.groupBox3.Name = "groupBox3";
+            this.groupBox3.Size = new System.Drawing.Size(114, 102);
+            this.groupBox3.TabIndex = 4;
+            this.groupBox3.TabStop = false;
+            this.groupBox3.Text = "Demora consulta médica";
+            // 
+            // tbxHastaCM
+            // 
+            this.tbxHastaCM.Location = new System.Drawing.Point(57, 71);
+            this.tbxHastaCM.MaxLength = 100;
+            this.tbxHastaCM.Name = "tbxHastaCM";
+            this.tbxHastaCM.Size = new System.Drawing.Size(33, 20);
+            this.tbxHastaCM.TabIndex = 6;
+            this.tbxHastaCM.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.tbxHastaCM_KeyPress);
+            // 
+            // tbxDesdeCM
+            // 
+            this.tbxDesdeCM.Location = new System.Drawing.Point(57, 37);
+            this.tbxDesdeCM.MaxLength = 100;
+            this.tbxDesdeCM.Name = "tbxDesdeCM";
+            this.tbxDesdeCM.Size = new System.Drawing.Size(33, 20);
+            this.tbxDesdeCM.TabIndex = 5;
+            this.tbxDesdeCM.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.tbxDesdeCM_KeyPress);
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Location = new System.Drawing.Point(16, 74);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(35, 14);
+            this.label7.TabIndex = 5;
+            this.label7.Text = "Hasta";
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(16, 43);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(38, 14);
+            this.label3.TabIndex = 4;
+            this.label3.Text = "Desde";
+            // 
+            // groupBox4
+            // 
+            this.groupBox4.Controls.Add(this.label4);
+            this.groupBox4.Controls.Add(this.tbxDemoraCuracion);
+            this.groupBox4.Location = new System.Drawing.Point(592, 26);
+            this.groupBox4.Name = "groupBox4";
+            this.groupBox4.Size = new System.Drawing.Size(94, 78);
+            this.groupBox4.TabIndex = 6;
+            this.groupBox4.TabStop = false;
+            this.groupBox4.Text = "Demora curación";
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(16, 43);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(32, 14);
+            this.label4.TabIndex = 4;
+            this.label4.Text = "Cte =";
+            // 
+            // tbxDemoraCuracion
+            // 
+            this.tbxDemoraCuracion.Location = new System.Drawing.Point(54, 40);
+            this.tbxDemoraCuracion.MaxLength = 100;
+            this.tbxDemoraCuracion.Name = "tbxDemoraCuracion";
+            this.tbxDemoraCuracion.Size = new System.Drawing.Size(34, 20);
+            this.tbxDemoraCuracion.TabIndex = 8;
+            this.tbxDemoraCuracion.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.tbxDemoraCuracion_KeyPress);
+            // 
+            // groupBox5
+            // 
+            this.groupBox5.Controls.Add(this.label5);
+            this.groupBox5.Controls.Add(this.tbxDemoraVacuna);
+            this.groupBox5.Location = new System.Drawing.Point(491, 26);
+            this.groupBox5.Name = "groupBox5";
+            this.groupBox5.Size = new System.Drawing.Size(95, 78);
+            this.groupBox5.TabIndex = 5;
+            this.groupBox5.TabStop = false;
+            this.groupBox5.Text = "Demora vacunación";
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(16, 43);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(32, 14);
+            this.label5.TabIndex = 4;
+            this.label5.Text = "Cte =";
+            // 
+            // tbxDemoraVacuna
+            // 
+            this.tbxDemoraVacuna.Location = new System.Drawing.Point(54, 40);
+            this.tbxDemoraVacuna.MaxLength = 100;
+            this.tbxDemoraVacuna.Name = "tbxDemoraVacuna";
+            this.tbxDemoraVacuna.Size = new System.Drawing.Size(33, 20);
+            this.tbxDemoraVacuna.TabIndex = 7;
+            this.tbxDemoraVacuna.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.tbxDemoraVacuna_KeyPress);
+            // 
+            // groupBox6
+            // 
+            this.groupBox6.Controls.Add(this.label6);
+            this.groupBox6.Location = new System.Drawing.Point(792, 26);
+            this.groupBox6.Name = "groupBox6";
+            this.groupBox6.Size = new System.Drawing.Size(94, 78);
+            this.groupBox6.TabIndex = 6;
+            this.groupBox6.TabStop = false;
+            this.groupBox6.Text = "Demora spray antidolor";
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Location = new System.Drawing.Point(16, 43);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(58, 14);
+            this.label6.TabIndex = 4;
+            this.label6.Text = "Cte = 1.55\'";
+            // 
+            // btnLimpiar
+            // 
+            this.btnLimpiar.Location = new System.Drawing.Point(915, 77);
+            this.btnLimpiar.Margin = new System.Windows.Forms.Padding(2);
+            this.btnLimpiar.Name = "btnLimpiar";
+            this.btnLimpiar.Size = new System.Drawing.Size(70, 27);
+            this.btnLimpiar.TabIndex = 11;
+            this.btnLimpiar.Text = "Reiniciar";
+            this.btnLimpiar.UseVisualStyleBackColor = true;
+            this.btnLimpiar.Click += new System.EventHandler(this.btnLimpiar_Click_1);
+            // 
+            // btnGenerar
+            // 
+            this.btnGenerar.Location = new System.Drawing.Point(915, 47);
+            this.btnGenerar.Margin = new System.Windows.Forms.Padding(2);
+            this.btnGenerar.Name = "btnGenerar";
+            this.btnGenerar.Size = new System.Drawing.Size(70, 26);
+            this.btnGenerar.TabIndex = 10;
+            this.btnGenerar.Text = "Generar";
+            this.btnGenerar.UseVisualStyleBackColor = true;
+            this.btnGenerar.Click += new System.EventHandler(this.btnGenerar_Click);
+            // 
+            // lblOE
+            // 
+            this.lblOE.AutoSize = true;
+            this.lblOE.Location = new System.Drawing.Point(381, 592);
+            this.lblOE.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.lblOE.Name = "lblOE";
+            this.lblOE.Size = new System.Drawing.Size(194, 14);
+            this.lblOE.TabIndex = 29;
+            this.lblOE.Text = "Promedio tiempo ocupación enfermero:";
+            // 
+            // lblPP
+            // 
+            this.lblPP.AutoSize = true;
+            this.lblPP.Location = new System.Drawing.Point(381, 625);
+            this.lblPP.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.lblPP.Name = "lblPP";
+            this.lblPP.Size = new System.Drawing.Size(206, 14);
+            this.lblPP.TabIndex = 30;
+            this.lblPP.Text = "Tiempo promedio permanencia pacientes:";
+            // 
+            // lblCC
+            // 
+            this.lblCC.AutoSize = true;
+            this.lblCC.Location = new System.Drawing.Point(15, 625);
+            this.lblCC.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.lblCC.Name = "lblCC";
+            this.lblCC.Size = new System.Drawing.Size(168, 14);
+            this.lblCC.TabIndex = 32;
+            this.lblCC.Text = "Cantidad de calmantes aplicados:";
+            // 
+            // lblPA
+            // 
+            this.lblPA.AutoSize = true;
+            this.lblPA.Location = new System.Drawing.Point(15, 592);
+            this.lblPA.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.lblPA.Name = "lblPA";
+            this.lblPA.Size = new System.Drawing.Size(190, 14);
+            this.lblPA.TabIndex = 33;
+            this.lblPA.Text = "Cantidad total de pacientes atendidos:";
+            // 
+            // groupBox7
+            // 
+            this.groupBox7.Controls.Add(this.label8);
+            this.groupBox7.Controls.Add(this.tbxDemoraCalmante);
+            this.groupBox7.Location = new System.Drawing.Point(692, 26);
+            this.groupBox7.Name = "groupBox7";
+            this.groupBox7.Size = new System.Drawing.Size(94, 78);
+            this.groupBox7.TabIndex = 7;
+            this.groupBox7.TabStop = false;
+            this.groupBox7.Text = "Demora calmante";
+            // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Location = new System.Drawing.Point(16, 43);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(32, 14);
+            this.label8.TabIndex = 4;
+            this.label8.Text = "Cte =";
+            // 
+            // tbxDemoraCalmante
+            // 
+            this.tbxDemoraCalmante.Location = new System.Drawing.Point(54, 40);
+            this.tbxDemoraCalmante.MaxLength = 100;
+            this.tbxDemoraCalmante.Name = "tbxDemoraCalmante";
+            this.tbxDemoraCalmante.Size = new System.Drawing.Size(34, 20);
+            this.tbxDemoraCalmante.TabIndex = 9;
+            this.tbxDemoraCalmante.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.tbxDemoraCalmante_KeyPress);
+            // 
+            // lblPromedioOcupacion
+            // 
+            this.lblPromedioOcupacion.AutoSize = true;
+            this.lblPromedioOcupacion.Location = new System.Drawing.Point(587, 592);
+            this.lblPromedioOcupacion.Name = "lblPromedioOcupacion";
+            this.lblPromedioOcupacion.Size = new System.Drawing.Size(0, 14);
+            this.lblPromedioOcupacion.TabIndex = 35;
+            // 
+            // lblPromedioPermanencia
+            // 
+            this.lblPromedioPermanencia.AutoSize = true;
+            this.lblPromedioPermanencia.Location = new System.Drawing.Point(587, 625);
+            this.lblPromedioPermanencia.Name = "lblPromedioPermanencia";
+            this.lblPromedioPermanencia.Size = new System.Drawing.Size(0, 14);
+            this.lblPromedioPermanencia.TabIndex = 36;
+            // 
+            // lblCantidadCalmantes
+            // 
+            this.lblCantidadCalmantes.AutoSize = true;
+            this.lblCantidadCalmantes.Location = new System.Drawing.Point(208, 625);
+            this.lblCantidadCalmantes.Name = "lblCantidadCalmantes";
+            this.lblCantidadCalmantes.Size = new System.Drawing.Size(0, 14);
+            this.lblCantidadCalmantes.TabIndex = 37;
+            // 
+            // lblPacientesAtendidos
+            // 
+            this.lblPacientesAtendidos.AutoSize = true;
+            this.lblPacientesAtendidos.Location = new System.Drawing.Point(208, 592);
+            this.lblPacientesAtendidos.Name = "lblPacientesAtendidos";
+            this.lblPacientesAtendidos.Size = new System.Drawing.Size(0, 14);
+            this.lblPacientesAtendidos.TabIndex = 38;
+            // 
+            // btnExportar
+            // 
+            this.btnExportar.Location = new System.Drawing.Point(1172, 607);
+            this.btnExportar.Name = "btnExportar";
+            this.btnExportar.Size = new System.Drawing.Size(75, 23);
+            this.btnExportar.TabIndex = 39;
+            this.btnExportar.Text = "Exportar";
+            this.btnExportar.UseVisualStyleBackColor = true;
+            this.btnExportar.Click += new System.EventHandler(this.btnExportar_Click);
+            // 
             // Menu
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 14F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.Control;
             this.ClientSize = new System.Drawing.Size(1299, 656);
+            this.Controls.Add(this.btnExportar);
             this.Controls.Add(this.lblPacientesAtendidos);
             this.Controls.Add(this.lblCantidadCalmantes);
             this.Controls.Add(this.lblPromedioPermanencia);
@@ -800,5 +812,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn cantidadTotalPacientes;
         private System.Windows.Forms.DataGridViewTextBoxColumn cantidadCalmantes;
         private System.Windows.Forms.DataGridViewTextBoxColumn acTiempoPermanencia;
+        private System.Windows.Forms.Button btnExportar;
     }
 }

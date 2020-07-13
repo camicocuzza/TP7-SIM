@@ -136,7 +136,7 @@ namespace TP7_SIM.Formularios
             total_pacientes.Add(paciente);
             vector[0] = new object[] {it, evento, reloj, rndLlegadaCons, entreLlegadaConsulta, proximaLlegadaCons, 0, 0, proxLlegadaEnf, 0, "", rndDemoraCons, demoraConsulta, medico1.finConsulta,
             medico2.finConsulta, 0, "", enfermero1.finAtencion, enfermero1.finAtencionCalmante, medico1.estado, medico2.estado, Medico.colaPacientes.Count(), enfermero1.estado,
-            enfermero1.getTamColaPrioridad(), enfermero1.getTamColaCalmantes(), acTiempoOcupacion, acPacientesAtendidos, acCalmantes, acTiempoPermanencia };
+            enfermero1.getTamColaPrioridad(), enfermero1.getTamColaCalmantes(enfermero1), acTiempoOcupacion, acPacientesAtendidos, acCalmantes, acTiempoPermanencia };
 
             if (it >= desde && it <= hasta)
             {
@@ -151,7 +151,7 @@ namespace TP7_SIM.Formularios
             
             if (vector[1][22].ToString() != "Libre")
             {
-                acTiempoOcupacion = acTiempoOcupacion + (reloj - Double.Parse(vector[1][2].ToString()));
+                acTiempoOcupacion = acTiempoOcupacion + (Double.Parse(vector[0][2].ToString()) - Double.Parse(vector[1][2].ToString()));
             }
 
             result.Add(acTiempoOcupacion);
@@ -319,7 +319,7 @@ namespace TP7_SIM.Formularios
             total_pacientes.Add(paciente);
             vector[0] = new object[] {it, evento, reloj, 0, 0, proxLlegadaCons, rndLlegadaEnf, entreLlegadaEnf, proximaLlegadaEnf,rndTipoAtencion, tipoAtencion, 0, 0, medico1.finConsulta,
             medico2.finConsulta, 0, "", enfermero1.finAtencion, enfermero1.finAtencionCalmante,medico1.estado, medico2.estado, Medico.colaPacientes.Count(), enfermero1.estado,
-            enfermero1.getTamColaPrioridad(), enfermero1.getTamColaCalmantes(), acTOcupacion, acPacientesAtendidos, acCalmantes, acTiempoPermanencia};
+            enfermero1.getTamColaPrioridad(), enfermero1.getTamColaCalmantes(enfermero1), acTOcupacion, acPacientesAtendidos, acCalmantes, acTiempoPermanencia};
 
             if (it >= desde && it <= hasta)
             {
@@ -334,7 +334,7 @@ namespace TP7_SIM.Formularios
 
             if (vector[1][22].ToString() != "Libre")
             {
-                acTOcupacion = acTOcupacion + (reloj - Double.Parse(vector[1][2].ToString()));
+                acTOcupacion = acTOcupacion + (Double.Parse(vector[0][2].ToString()) - Double.Parse(vector[1][2].ToString()));
             }
 
             result.Add(acTOcupacion);
@@ -559,7 +559,7 @@ namespace TP7_SIM.Formularios
             vector[1] = vector[0];
             vector[0] = new object[]{it, evento, reloj, 0, 0, proxLlegadaCons, 0, 0, proxLlegadaEnf, 0, "", rndDemoraCons, demoraConsulta, medico1.finConsulta,
                 medico2.finConsulta, rndCalmante, calmante, enfermero1.finAtencion, enfermero1.finAtencionCalmante, medico1.estado, medico2.estado, Medico.colaPacientes.Count(), enfermero1.estado,
-                 enfermero1.getTamColaPrioridad(), enfermero1.getTamColaCalmantes(), acTOcupacion, acPacientesAtendidos, acCalmantes, acTPerm };
+                 enfermero1.getTamColaPrioridad(), enfermero1.getTamColaCalmantes(enfermero1), acTOcupacion, acPacientesAtendidos, acCalmantes, acTPerm };
 
           
             foreach (Paciente p in estados_a_dgv)
@@ -570,7 +570,7 @@ namespace TP7_SIM.Formularios
 
             if (vector[1][22].ToString() != "Libre")
             {
-                acTOcupacion = acTOcupacion + (reloj - Double.Parse(vector[1][2].ToString()));
+                acTOcupacion = acTOcupacion + (Double.Parse(vector[0][2].ToString()) - Double.Parse(vector[1][2].ToString()));
             }
             result.Add(acTPerm);
             result.Add(acTOcupacion);
@@ -664,7 +664,7 @@ namespace TP7_SIM.Formularios
                 Paciente siguiente = enfermero1.colaEnfCalmantes.First();
 
                 demoraEnfermeria = demoraCalmante + 1.55;
-                siguiente.estado = "Rcalmante";
+                siguiente.estado = "RCalmante";
                 enfermero1.estado = "ACalmante";
                 foreach (Paciente p in total_pacientes)
                 {
@@ -699,7 +699,7 @@ namespace TP7_SIM.Formularios
             vector[1] = vector[0];
             vector[0] = new object[] {it, evento, reloj, 0, 0, proxLlegadaCons, 0, 0, proxLlegadaEnf, 0, "", 0, "", medico1.finConsulta,
                 medico2.finConsulta, 0, "", enfermero1.finAtencion, enfermero1.finAtencionCalmante, medico1.estado, medico2.estado, Medico.colaPacientes.Count(), enfermero1.estado,
-                enfermero1.getTamColaPrioridad(), enfermero1.getTamColaCalmantes(), acTiempoOcupacion, acPacientesAtendidos, acCalmantes, acTPerm};
+                enfermero1.getTamColaPrioridad(), enfermero1.getTamColaCalmantes(enfermero1), acTiempoOcupacion, acPacientesAtendidos, acCalmantes, acTPerm};
 
            
             foreach (Paciente p in estados_a_dgv)
@@ -710,7 +710,7 @@ namespace TP7_SIM.Formularios
 
             if (vector[1][22].ToString() != "Libre")
             {
-                acTiempoOcupacion = acTiempoOcupacion + (reloj - Double.Parse(vector[1][2].ToString()));
+                acTiempoOcupacion = acTiempoOcupacion + (Double.Parse(vector[0][2].ToString()) - Double.Parse(vector[1][2].ToString()));
             }
 
             
@@ -780,7 +780,7 @@ namespace TP7_SIM.Formularios
             vector[1] = vector[0];
             vector[0] = new object[] {it, evento, reloj, 0, 0, proxLlegadaCons, 0, 0, proxLlegadaEnf, 0, "", 0, "", medico1.finConsulta,
                 medico2.finConsulta, 0, "", enfermero1.finAtencion, enfermero1.finAtencionCalmante, medico1.estado, medico2.estado, Medico.colaPacientes.Count(), enfermero1.estado,
-                enfermero1.getTamColaPrioridad(), enfermero1.getTamColaCalmantes(), acTiempoOcupacion, acPacientesAtendidos, acCalmantes, acTPerm};
+                enfermero1.getTamColaPrioridad(), enfermero1.getTamColaCalmantes(enfermero1), acTiempoOcupacion, acPacientesAtendidos, acCalmantes, acTPerm};
 
 
             foreach (Paciente p in estados_a_dgv)
@@ -791,7 +791,7 @@ namespace TP7_SIM.Formularios
 
             if (vector[1][22].ToString() != "Libre")
             {
-                acTiempoOcupacion = acTiempoOcupacion + (reloj - Double.Parse(vector[1][2].ToString()));
+                acTiempoOcupacion = acTiempoOcupacion + (Double.Parse(vector[0][2].ToString()) - Double.Parse(vector[1][2].ToString()));
             }
 
             result.Add(acCalmantes);
@@ -1125,7 +1125,7 @@ namespace TP7_SIM.Formularios
         private void btnLimpiar_Click_1(object sender, EventArgs e)
         {
 
-
+            /*
             tbxDesde.Clear();
 
             tbxDemoraCalmante.Clear();
@@ -1145,9 +1145,12 @@ namespace TP7_SIM.Formularios
 
             dgv_datos.Rows.Clear();
             int col = dgv_datos.DisplayedColumnCount(true);
-            
 
+            Application.Exit();
+            */
 
+            Application.Restart();
+           
         }
 
         private void txtIteraciones_KeyPress(object sender, KeyPressEventArgs e)
@@ -1262,6 +1265,39 @@ namespace TP7_SIM.Formularios
             {
                 e.Handled = true;
             }
+        }
+
+        private void btnExportar_Click(object sender, EventArgs e)
+        {
+            if (dgv_datos.Rows.Count > 0 )
+            {
+                Microsoft.Office.Interop.Excel.Application excelApp = new Microsoft.Office.Interop.Excel.Application();
+                Microsoft.Office.Interop.Excel.Workbook workbook = excelApp.Workbooks.Add(Type.Missing);
+                Microsoft.Office.Interop.Excel.Worksheet worksheet = null;
+                worksheet = workbook.Sheets["Hoja1"];
+                worksheet.Name = "Salida_DGV";
+
+
+                for(int i = 1; i < dgv_datos.Columns.Count+1; i++)
+                {
+                    excelApp.Cells[1 , i] = dgv_datos.Columns[i - 1].HeaderText;
+                }
+
+                for (int i = 0; i < dgv_datos.Rows.Count; i++)
+                {
+                    for (int j = 0; j < dgv_datos.Columns.Count; j++)
+                    {
+                        if (dgv_datos.Rows[i].Cells[j].Value != null)
+                        {
+                            excelApp.Cells[i + 2, j + 1] = dgv_datos.Rows[i].Cells[j].Value;
+                        }
+                    }
+                }
+                excelApp.Columns.AutoFit();
+                excelApp.Visible = true;
+
+            }
+
         }
     }
 }

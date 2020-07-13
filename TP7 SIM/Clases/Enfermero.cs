@@ -30,7 +30,7 @@ namespace TP7_SIM.Clases
             }
             return x - 1;
         }
-        public int getTamColaCalmantes()
+        public int getTamColaCalmantes(Enfermero enf)
         {
 
             int x = colaEnfCalmantes.Count();
@@ -38,7 +38,14 @@ namespace TP7_SIM.Clases
             {
                 return x;
             }
-            return x - 1;
+            if (enf.estado == "ACalmante")
+            {
+                return x - 1;
+            }
+            else
+            {
+                return x;
+            }
         }
     }
 }
